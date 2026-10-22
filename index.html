@@ -52,17 +52,6 @@
             user-select: none;
         }
 
-        /* Architectural Grid & Ribbed Effect from Reference Image */
-        .arch-ribs {
-            background-image: repeating-linear-gradient(
-                90deg,
-                rgba(178, 19, 25, 0.9) 0px,
-                rgba(178, 19, 25, 0.9) 4px,
-                rgba(110, 8, 12, 0.95) 4px,
-                rgba(110, 8, 12, 0.95) 12px
-            );
-        }
-
         .glass-panel {
             background: rgba(255, 255, 255, 0.86);
             backdrop-filter: blur(20px);
@@ -157,7 +146,6 @@
             right: 15%;
         }
 
-        /* Watermark giant numbers like reference slide 01 */
         .giant-num {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 800;
@@ -168,7 +156,6 @@
             letter-spacing: -0.05em;
         }
 
-        /* Custom Scrollbar inside slides for smaller screens */
         .slide-view::-webkit-scrollbar {
             width: 5px;
         }
@@ -188,7 +175,6 @@
             animation: pulseGlow 2.5s infinite;
         }
 
-        /* Mobile & Fullscreen Adaptive Enhancements */
         @media (max-width: 1023px) {
             body {
                 height: 100dvh;
@@ -204,32 +190,25 @@
             }
         }
 
-        :fullscreen #presentationStage,
-        :-webkit-full-screen #presentationStage {
-            border-radius: 0;
-            max-width: 100vw;
-            height: 100vh;
-        }
-
-        /* Pseudo-Fullscreen / Cinema Mode Fallback (100% Guaranteed on iFrame, iOS & Android) */
-        body.pseudo-fullscreen-active header {
+        /* 100% Robust Fullscreen / Cinema Mode Architecture */
+        body.fullscreen-active header {
             display: none !important;
         }
-        body.pseudo-fullscreen-active main {
+        body.fullscreen-active main {
             max-width: 100vw !important;
             width: 100vw !important;
             height: 100dvh !important;
             margin: 0 !important;
             padding: 0 !important;
         }
-        body.pseudo-fullscreen-active #presentationStage {
+        body.fullscreen-active #presentationStage {
             border-radius: 0 !important;
             border: none !important;
             width: 100vw !important;
             height: 100dvh !important;
             max-width: 100vw !important;
         }
-        body.pseudo-fullscreen-active footer {
+        body.fullscreen-active footer {
             position: fixed !important;
             bottom: 0.75rem !important;
             left: 0 !important;
@@ -237,15 +216,13 @@
             z-index: 45 !important;
             pointer-events: none;
         }
-        body.pseudo-fullscreen-active footer > * {
+        body.fullscreen-active footer > * {
             pointer-events: auto;
         }
         #exitFullscreenFloatingBtn {
             display: none;
         }
-        body.pseudo-fullscreen-active #exitFullscreenFloatingBtn,
-        :fullscreen #exitFullscreenFloatingBtn,
-        :-webkit-full-screen #exitFullscreenFloatingBtn {
+        body.fullscreen-active #exitFullscreenFloatingBtn {
             display: inline-flex !important;
         }
     </style>
@@ -253,9 +230,7 @@
 <body class="h-[100dvh] w-full flex flex-col justify-between text-slate-800 antialiased selection:bg-crimson-600 selection:text-white">
 
     <header class="w-full px-3 sm:px-8 pt-2.5 pb-2 flex items-center justify-between z-30 shrink-0 border-b border-slate-300/60 bg-white/80 backdrop-blur-md">
-        <!-- Left Brand & School Identity -->
         <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
-            <!-- Architectural Red Circular Emblem from reference -->
             <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-crimson-600 flex items-center justify-center relative shadow-sm bg-white group cursor-pointer shrink-0" onclick="goToSlide(0)" title="Kembali ke Sampul">
                 <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-crimson-600 border-r-transparent rotate-45 group-hover:rotate-180 transition-transform duration-500"></div>
                 <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-crimson-600 absolute"></div>
@@ -271,31 +246,29 @@
             </div>
         </div>
 
-        <!-- Center Section Dots (Reference top-right red navigation indicators) -->
         <div class="hidden xl:flex items-center gap-4 text-xs font-semibold text-slate-500">
-            <button onclick="goToSlide(0)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors" data-group="intro">
+            <button onclick="goToSlide(0)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors">
                 <span>Pendahuluan</span>
                 <span class="w-2 h-2 rounded-full bg-crimson-600"></span>
             </button>
-            <button onclick="goToSlide(3)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors" data-group="inti">
+            <button onclick="goToSlide(3)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors">
                 <span>Dalil & Kata Arab</span>
                 <span class="w-2 h-2 rounded-full bg-slate-300"></span>
             </button>
-            <button onclick="goToSlide(5)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors" data-group="syarat">
+            <button onclick="goToSlide(5)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors">
                 <span>Syarat & Rukun</span>
                 <span class="w-2 h-2 rounded-full bg-slate-300"></span>
             </button>
-            <button onclick="goToSlide(6)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors" data-group="lkpd">
+            <button onclick="goToSlide(6)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors">
                 <span>Market Place & LKPD 1</span>
                 <span class="w-2 h-2 rounded-full bg-slate-300"></span>
             </button>
-            <button onclick="goToSlide(8)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors" data-group="kuis">
+            <button onclick="goToSlide(8)" class="nav-pill flex items-center gap-1.5 hover:text-crimson-600 transition-colors">
                 <span>Kuis & Penutup</span>
                 <span class="w-2 h-2 rounded-full bg-slate-300"></span>
             </button>
         </div>
 
-        <!-- Right Wisdom, Mobile Drawer & Fullscreen Controls -->
         <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             <button onclick="toggleTimerModal()" class="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-crimson-50 text-slate-700 hover:text-crimson-700 border border-slate-200 transition-all text-[11px] sm:text-xs font-semibold" title="Pengatur Waktu Pembelajaran (80 Menit)">
                 <i class="ph-bold ph-timer text-crimson-600 text-sm"></i>
@@ -318,8 +291,8 @@
     <main class="relative flex-1 w-full max-w-[1440px] mx-auto my-1 sm:my-3 px-1.5 sm:px-6 overflow-hidden flex items-center justify-center">
         <div id="presentationStage" class="relative w-full h-full rounded-xl sm:rounded-2xl glass-panel overflow-hidden shadow-2xl border border-white">
 
-            <!-- Floating Exit Fullscreen Button (Visible when in Fullscreen / Cinema Mode) -->
-            <button type="button" id="exitFullscreenFloatingBtn" onclick="toggleFullscreen()" class="fixed top-3 right-3 z-50 items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/85 hover:bg-crimson-600 text-white text-xs font-bold shadow-xl backdrop-blur-md border border-white/20 transition-all">
+            <!-- Floating Exit Fullscreen Button -->
+            <button type="button" id="exitFullscreenFloatingBtn" onclick="toggleFullscreen()" class="fixed top-3 right-3 z-50 items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 hover:bg-crimson-600 text-white text-xs font-bold shadow-2xl backdrop-blur-md border border-white/20 transition-all">
                 <i class="ph-bold ph-corners-in text-sm"></i>
                 <span>Keluar Fullscreen</span>
             </button>
@@ -328,52 +301,25 @@
                  SLIDE 1: COVER / SAMPUL ARSITEKTURAL
                  ========================================== -->
             <section class="slide-view active p-5 sm:p-12 flex flex-col justify-between" data-slide="0">
-                <!-- Background Architectural SVG Graphics (Inspired by the Red Modern Building in Reference) -->
                 <div class="absolute right-0 bottom-0 w-full lg:w-[58%] h-[42%] sm:h-[60%] lg:h-[78%] pointer-events-none overflow-hidden flex items-end justify-end z-0 opacity-25 sm:opacity-60 lg:opacity-95">
                     <svg viewBox="0 0 800 520" class="w-full h-full object-cover object-right-bottom drop-shadow-2xl" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Sky/Ground subtle reflection -->
                         <path d="M0 460 L800 460 L800 520 L0 520 Z" fill="url(#floorGrad)"/>
-                        <!-- Back Tower -->
                         <path d="M360 150 L450 110 L450 460 L360 460 Z" fill="#7A090E"/>
-                        <!-- Main Iconic Red Ribbed Facade -->
                         <path d="M430 140 L710 25 L740 460 L430 460 Z" fill="url(#buildingMain)"/>
-                        <!-- Vertical Louvers/Ribs on Main Tower -->
                         <g stroke="#B21319" stroke-width="3" opacity="0.65">
-                            <line x1="450" y1="132" x2="450" y2="460"/>
-                            <line x1="470" y1="124" x2="470" y2="460"/>
-                            <line x1="490" y1="115" x2="490" y2="460"/>
-                            <line x1="510" y1="107" x2="510" y2="460"/>
-                            <line x1="530" y1="99" x2="530" y2="460"/>
-                            <line x1="550" y1="91" x2="550" y2="460"/>
-                            <line x1="570" y1="83" x2="570" y2="460"/>
-                            <line x1="590" y1="74" x2="590" y2="460"/>
-                            <line x1="610" y1="66" x2="610" y2="460"/>
-                            <line x1="630" y1="58" x2="630" y2="460"/>
-                            <line x1="650" y1="50" x2="650" y2="460"/>
-                            <line x1="670" y1="42" x2="670" y2="460"/>
-                            <line x1="690" y1="33" x2="690" y2="460"/>
+                            <line x1="450" y1="132" x2="450" y2="460"/><line x1="470" y1="124" x2="470" y2="460"/><line x1="490" y1="115" x2="490" y2="460"/><line x1="510" y1="107" x2="510" y2="460"/><line x1="530" y1="99" x2="530" y2="460"/><line x1="550" y1="91" x2="550" y2="460"/><line x1="570" y1="83" x2="570" y2="460"/><line x1="590" y1="74" x2="590" y2="460"/><line x1="610" y1="66" x2="610" y2="460"/><line x1="630" y1="58" x2="630" y2="460"/><line x1="650" y1="50" x2="650" y2="460"/><line x1="670" y1="42" x2="670" y2="460"/><line x1="690" y1="33" x2="690" y2="460"/>
                         </g>
-                        <!-- Curved Sweeping Podium Roof (Signature red curve from reference) -->
                         <path d="M310 330 L475 290 C540 280, 560 430, 650 445 L755 450 L755 460 L310 460 Z" fill="#470407"/>
                         <path d="M310 330 L475 290 C540 280, 560 430, 650 445 L755 450" stroke="#E02424" stroke-width="10" stroke-linecap="round"/>
                         <path d="M430 140 L710 25 L740 460" stroke="#E02424" stroke-width="8" stroke-linejoin="round"/>
-                        <!-- Reflection lines -->
                         <line x1="200" y1="460" x2="800" y2="460" stroke="#94A3B8" stroke-width="2"/>
                         <defs>
-                            <linearGradient id="buildingMain" x1="430" y1="25" x2="740" y2="460" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#9B1C1C"/>
-                                <stop offset="0.5" stop-color="#68070B"/>
-                                <stop offset="1" stop-color="#380305"/>
-                            </linearGradient>
-                            <linearGradient id="floorGrad" x1="400" y1="460" x2="400" y2="520" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#CBD5E1" stop-opacity="0.8"/>
-                                <stop offset="1" stop-color="#94A3B8" stop-opacity="0.3"/>
-                            </linearGradient>
+                            <linearGradient id="buildingMain" x1="430" y1="25" x2="740" y2="460" gradientUnits="userSpaceOnUse"><stop stop-color="#9B1C1C"/><stop offset="0.5" stop-color="#68070B"/><stop offset="1" stop-color="#380305"/></linearGradient>
+                            <linearGradient id="floorGrad" x1="400" y1="460" x2="400" y2="520" gradientUnits="userSpaceOnUse"><stop stop-color="#CBD5E1" stop-opacity="0.8"/><stop offset="1" stop-color="#94A3B8" stop-opacity="0.3"/></linearGradient>
                         </defs>
                     </svg>
                 </div>
 
-                <!-- Left Content Column (Restored & Mobile-Friendly) -->
                 <div class="relative z-10 max-w-2xl my-auto space-y-3 sm:space-y-5">
                     <div class="stagger-item delay-1 inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white/90 border border-slate-200 shadow-sm">
                         <span class="w-2.5 h-2.5 rounded-full bg-crimson-600 pulse-crimson"></span>
@@ -390,7 +336,6 @@
                         </p>
                     </div>
 
-                    <!-- Reference Pill Badge & Key Metrics -->
                     <div class="stagger-item delay-3 flex flex-wrap items-center gap-2.5 pt-1">
                         <span class="px-4 py-1.5 rounded-full crimson-glass text-white text-xs font-extrabold tracking-wide shadow-md">
                             Tahun Pelajaran 2026/2027
@@ -429,11 +374,10 @@
             </section>
 
             <!-- ==========================================
-                 SLIDE 2: PENDAHULUAN & KESIAPAN BELAJAR (10 MENIT)
+                 SLIDE 2: PENDAHULUAN & KESIAPAN BELAJAR
                  ========================================== -->
             <section class="slide-view p-6 sm:p-10 flex flex-col justify-between" data-slide="1">
                 <div class="flex flex-col lg:flex-row gap-6 h-full items-stretch">
-                    <!-- Left Giant Number Reference Style ("01 INTRODUCE") -->
                     <div class="lg:w-4/12 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between relative overflow-hidden stagger-item delay-1">
                         <div>
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-crimson-600 text-white text-[11px] font-bold tracking-wider uppercase mb-3">
@@ -442,13 +386,10 @@
                             <h2 class="font-serif font-bold text-3xl text-crimson-600">PEMBUKAAN</h2>
                             <p class="text-xs text-slate-500 mt-1">Membangun suasana kelas yang penuh cinta, bersih, rapi, dan siap menerima ilmu.</p>
                         </div>
-
                         <div class="my-4 select-none">
                             <div class="giant-num text-[110px] sm:text-[140px]">01</div>
                             <div class="text-sm font-bold text-slate-800 -mt-2">Orientasi & Asesmen Diagnostik</div>
                         </div>
-
-                        <!-- Prayer Box with Clickable Arabic Words -->
                         <div class="p-3.5 rounded-xl bg-crimson-50/70 border border-crimson-200">
                             <div class="flex items-center justify-between mb-1">
                                 <span class="text-[11px] font-bold text-crimson-700 flex items-center gap-1">
@@ -466,9 +407,7 @@
                         </div>
                     </div>
 
-                    <!-- Right Interactive Checklist & Diagnostic Readiness -->
                     <div class="lg:w-8/12 flex flex-col gap-4 justify-between">
-                        <!-- Classroom Readiness Checklist -->
                         <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm stagger-item delay-2">
                             <div class="flex items-center justify-between mb-3">
                                 <div>
@@ -504,7 +443,6 @@
                             </div>
                         </div>
 
-                        <!-- Asesmen Diagnostik (4 Pertanyaan sesuai Modul V.A) -->
                         <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex-1 flex flex-col justify-between stagger-item delay-3">
                             <div>
                                 <div class="flex items-center justify-between mb-2">
@@ -545,7 +483,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="mt-3 p-3 rounded-xl bg-crimson-50/70 border border-crimson-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
                                 <div class="flex items-center gap-2 text-crimson-800 font-semibold">
                                     <i class="ph-fill ph-heart text-crimson-600 text-base shrink-0"></i>
@@ -559,10 +496,9 @@
             </section>
 
             <!-- ==========================================
-                 SLIDE 3: APERSEPSI, PEMANTIK & TUJUAN PEMBELAJARAN
+                 SLIDE 3: APERSEPSI & PEMANTIK
                  ========================================== -->
             <section class="slide-view p-6 sm:p-10 flex flex-col justify-between" data-slide="2">
-                <!-- Header Reference Style -->
                 <div class="flex items-center justify-between border-b border-slate-200 pb-3 stagger-item delay-1">
                     <div class="flex items-center gap-3">
                         <div class="w-1.5 h-7 bg-crimson-600 rounded-full"></div>
@@ -574,9 +510,7 @@
                     <span class="px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-bold">Pertemuan Ke-1</span>
                 </div>
 
-                <!-- 3 Column Layout Inspired by Reference Bottom-Left Card Layout -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 my-auto py-3">
-                    <!-- Card 1: Apersepsi Visual Sahur & Berbuka -->
                     <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between stagger-item delay-2">
                         <div class="h-36 crimson-glass relative p-4 flex flex-col justify-end text-white overflow-hidden">
                             <i class="ph-duotone ph-moon-stars text-8xl absolute -right-4 -top-4 opacity-20"></i>
@@ -599,7 +533,6 @@
                         </div>
                     </div>
 
-                    <!-- Card 2: Pertanyaan Pemantik (4 Kartu Interaktif) -->
                     <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex flex-col justify-between stagger-item delay-3">
                         <div>
                             <div class="flex items-center justify-between mb-3">
@@ -609,7 +542,7 @@
                             <div class="space-y-2">
                                 <button onclick="showPemantikHint(0)" class="w-full text-left p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-300 transition-all text-xs font-semibold text-slate-700 flex items-start gap-2">
                                     <span class="w-5 h-5 rounded-full bg-crimson-600 text-white flex items-center justify-center text-[10px] shrink-0 mt-0.5">1</span>
-                                    <span>Mengapa orang sakit parah atau musafir diberi keringanan (rukhshah) tidak berpuasa?</span>
+                                    <span>Mengapa orang sakit parah atau musafir diberi keringanan tidak berpuasa?</span>
                                 </button>
                                 <button onclick="showPemantikHint(1)" class="w-full text-left p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-300 transition-all text-xs font-semibold text-slate-700 flex items-start gap-2">
                                     <span class="w-5 h-5 rounded-full bg-crimson-600 text-white flex items-center justify-center text-[10px] shrink-0 mt-0.5">2</span>
@@ -630,7 +563,6 @@
                         </div>
                     </div>
 
-                    <!-- Card 3: 3 Tujuan Pembelajaran Pertemuan 1 -->
                     <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex flex-col justify-between stagger-item delay-4">
                         <div>
                             <div class="flex items-center justify-between mb-3">
@@ -640,7 +572,7 @@
                             <div class="space-y-3">
                                 <div class="p-3 rounded-xl bg-slate-50 border-l-4 border-crimson-600">
                                     <div class="text-xs font-bold text-slate-900">1. Pengertian & Dalil Puasa</div>
-                                    <p class="text-[11px] text-slate-600 mt-0.5">Menjelaskan pengertian puasa secara bahasa dan istilah beserta dalilnya (QS. al-Baqarah: 187).</p>
+                                    <p class="text-[11px] text-slate-600 mt-0.5">Menjelaskan pengertian puasa secara bahasa dan istilah beserta dalilnya (QS. al-Baqarah: 183 & 187).</p>
                                 </div>
                                 <div class="p-3 rounded-xl bg-slate-50 border-l-4 border-crimson-600">
                                     <div class="text-xs font-bold text-slate-900">2. Syarat Wajib & Syarat Sah</div>
@@ -660,13 +592,13 @@
             </section>
 
             <!-- ==========================================
-                 SLIDE 4: STIMULASI - PENGERTIAN & DALIL QS. AL-BAQARAH: 187 (KLIK PER KATA)
+                 SLIDE 4: STIMULASI - DEFINITION & QURANIC AYAT (183 & 187)
                  ========================================== -->
             <section class="slide-view p-6 sm:p-10 flex flex-col justify-between" data-slide="3">
                 <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3 stagger-item delay-1">
                     <div class="flex items-center gap-3">
                         <div class="px-3 py-1 rounded-md crimson-glass text-white font-bold text-xs">TAHAP STIMULASI • 10 MENIT</div>
-                        <h2 class="text-lg sm:text-2xl font-extrabold text-slate-900">1. Pengertian Puasa & Dalil Al-Qur'an</h2>
+                        <h2 class="text-lg sm:text-2xl font-extrabold text-slate-900">1. Pengertian Puasa & Dalil Al-Qur'an (QS. 2:183 & 187)</h2>
                     </div>
                     <span class="text-xs font-bold text-crimson-600 flex items-center gap-1.5 bg-crimson-50 px-3 py-1 rounded-full border border-crimson-200">
                         <i class="ph-fill ph-hand-tap"></i> Klik setiap kata Arab untuk melihat arti & penjelasan!
@@ -674,7 +606,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto py-3 items-stretch">
-                    <!-- Left: Bahasa & Istilah -->
                     <div class="lg:col-span-5 flex flex-col gap-4 justify-between stagger-item delay-2">
                         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
                             <div class="flex items-center gap-3">
@@ -717,7 +648,6 @@
                         </div>
                     </div>
 
-                    <!-- Right: Interactive Word-by-Word QS. Al-Baqarah: 183 & 187 -->
                     <div class="lg:col-span-7 bg-white rounded-2xl border-2 border-crimson-600/20 shadow-md p-4 sm:p-6 flex flex-col justify-between relative overflow-hidden stagger-item delay-3">
                         <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
                             <div>
@@ -734,11 +664,9 @@
                             </div>
                         </div>
 
-                        <!-- Tab Panel 1: QS. Al-Baqarah: 183 -->
+                        <!-- Panel 183 -->
                         <div id="panelAyah183" class="flex-1 flex flex-col justify-between">
-                            <div dir="rtl" id="ayahBaqarah183Container" class="font-arabic text-2xl sm:text-3xl leading-[2.25] text-right text-slate-900 my-3 p-3.5 sm:p-4 rounded-xl bg-slate-50/90 border border-slate-200/80">
-                                <!-- Populated dynamically via JS for word-by-word QS. Al-Baqarah: 183 -->
-                            </div>
+                            <div dir="rtl" id="ayahBaqarah183Container" class="font-arabic text-2xl sm:text-3xl leading-[2.25] text-right text-slate-900 my-3 p-3.5 sm:p-4 rounded-xl bg-slate-50/90 border border-slate-200/80"></div>
                             <div class="space-y-1.5 bg-crimson-50/60 p-3.5 rounded-xl border border-crimson-100">
                                 <div class="flex items-center justify-between">
                                     <span class="text-xs font-bold text-crimson-700">Terjemahan Kemenag RI (QS. al-Baqarah: 183):</span>
@@ -750,11 +678,9 @@
                             </div>
                         </div>
 
-                        <!-- Tab Panel 2: QS. Al-Baqarah: 187 -->
+                        <!-- Panel 187 -->
                         <div id="panelAyah187" class="hidden flex-1 flex-col justify-between">
-                            <div dir="rtl" id="ayahBaqarahContainer" class="font-arabic text-2xl sm:text-3xl leading-[2.25] text-right text-slate-900 my-3 p-3.5 sm:p-4 rounded-xl bg-slate-50/90 border border-slate-200/80">
-                                <!-- Populated dynamically via JS for word-by-word QS. Al-Baqarah: 187 -->
-                            </div>
+                            <div dir="rtl" id="ayahBaqarahContainer" class="font-arabic text-2xl sm:text-3xl leading-[2.25] text-right text-slate-900 my-3 p-3.5 sm:p-4 rounded-xl bg-slate-50/90 border border-slate-200/80"></div>
                             <div class="space-y-1.5 bg-crimson-50/60 p-3.5 rounded-xl border border-crimson-100">
                                 <div class="flex items-center justify-between">
                                     <span class="text-xs font-bold text-crimson-700">Terjemahan Kemenag RI (QS. al-Baqarah: 187):</span>
@@ -770,7 +696,7 @@
             </section>
 
             <!-- ==========================================
-                 SLIDE 5: IDENTIFIKASI MASALAH & RUKUN PUASA + DALIL HADIS & NIAT (KLIK PER KATA)
+                 SLIDE 5: RUKUN PUASA & NIAT
                  ========================================== -->
             <section class="slide-view p-6 sm:p-10 flex flex-col justify-between" data-slide="4">
                 <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3 stagger-item delay-1">
@@ -784,7 +710,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto py-2 items-stretch">
-                    <!-- Left: 2 Rukun Puasa & Perbedaan Waktu Niat -->
                     <div class="lg:col-span-5 flex flex-col gap-3 justify-between stagger-item delay-2">
                         <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-2.5">
                             <h3 class="text-sm font-extrabold text-crimson-600 uppercase tracking-wider flex items-center gap-2">
@@ -800,7 +725,6 @@
                             </div>
                         </div>
 
-                        <!-- Perbandingan Waktu Niat Wajib vs Sunnah -->
                         <div class="bg-slate-900 text-white p-4 rounded-2xl shadow-md space-y-2.5">
                             <div class="text-xs font-bold text-crimson-400 uppercase tracking-wider flex items-center gap-1.5">
                                 <i class="ph-fill ph-clock"></i> Perbedaan Waktu Berniat (Identifikasi Masalah)
@@ -814,15 +738,13 @@
                                 <div class="p-2.5 rounded-xl bg-white/10 border border-white/10">
                                     <div class="font-bold text-emerald-300">Puasa Sunnah</div>
                                     <div class="text-[10px] text-slate-300 mb-1">(Senin-Kamis, Arafah, dll)</div>
-                                    <p class="text-[11px] leading-snug">Boleh diniatkan <strong>setelah fajar hingga sebelum zuhur</strong> (tergelincir matahari) asal belum makan/minum.</p>
+                                    <p class="text-[11px] leading-snug">Boleh diniatkan <strong>setelah fajar hingga sebelum zuhur</strong> asal belum makan/minum.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right: Interactive Hadith & Interactive Niyyah -->
                     <div class="lg:col-span-7 flex flex-col gap-3.5 justify-between stagger-item delay-3">
-                        <!-- Hadis Tabyit Niat -->
                         <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
                             <div class="flex items-center justify-between mb-2">
                                 <span class="text-xs font-extrabold text-crimson-600 uppercase">Dalil Hadis Malam Berniat (Tabyitul Niyyah)</span>
@@ -834,7 +756,6 @@
                             </p>
                         </div>
 
-                        <!-- Lafaz Niat Puasa Ramadhan -->
                         <div class="bg-white p-4 rounded-2xl border-2 border-crimson-600/25 shadow-sm">
                             <div class="flex items-center justify-between mb-2">
                                 <span class="text-xs font-extrabold text-crimson-600 uppercase flex items-center gap-1.5">
@@ -852,7 +773,7 @@
             </section>
 
             <!-- ==========================================
-                 SLIDE 6: SYARAT WAJIB & SYARAT SAH PUASA (INTERACTIVE EXPLORER)
+                 SLIDE 6: SYARAT WAJIB & SYARAT SAH
                  ========================================== -->
             <section class="slide-view p-4 sm:p-6 lg:px-8 lg:py-5 flex flex-col justify-between gap-2.5" data-slide="5">
                 <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2 shrink-0 stagger-item delay-1">
@@ -868,7 +789,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 my-auto items-stretch">
-                    <!-- Column 1: 6 Syarat Wajib -->
                     <div class="lg:col-span-6 bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-2">
                         <div>
                             <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-100">
@@ -883,52 +803,33 @@
                             </div>
                             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2">
                                 <button type="button" onclick="inspectSyarat('wajib', 0, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">1. Islam</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">Beragama Islam</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">1. Islam</div><div class="text-[10px] text-slate-500 leading-snug">Beragama Islam</div></div>
                                     <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                                 <button type="button" onclick="inspectSyarat('wajib', 1, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">2. Baligh</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">Dewasa menurut syariat</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">2. Baligh</div><div class="text-[10px] text-slate-500 leading-snug">Dewasa syariat</div></div>
                                     <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                                 <button type="button" onclick="inspectSyarat('wajib', 2, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">3. Berakal Sehat</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">Tidak gila / hilang akal</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">3. Berakal Sehat</div><div class="text-[10px] text-slate-500 leading-snug">Tidak gila/hilang akal</div></div>
                                     <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                                 <button type="button" onclick="inspectSyarat('wajib', 3, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">4. Mampu (Kuat)</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">Tidak sakit / tua renta</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">4. Mampu</div><div class="text-[10px] text-slate-500 leading-snug">Kuat melakukannya</div></div>
                                     <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                                 <button type="button" onclick="inspectSyarat('wajib', 4, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">5. Suci Haid & Nifas</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">Khusus bagi perempuan</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">5. Suci Haid</div><div class="text-[10px] text-slate-500 leading-snug">Khusus perempuan</div></div>
                                     <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                                 <button type="button" onclick="inspectSyarat('wajib', 5, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">6. Menetap (Mukim)</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">Tidak sedang musafir</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">6. Mukim</div><div class="text-[10px] text-slate-500 leading-snug">Tidak musafir</div></div>
                                     <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Column 2: 4 Syarat Sah (2x2 Grid + Ringkasan Kunci) -->
                     <div class="lg:col-span-6 bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-3">
                         <div>
                             <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-100">
@@ -936,44 +837,31 @@
                                     <span class="w-7 h-7 rounded-lg bg-slate-900 text-white font-bold flex items-center justify-center text-xs shrink-0">B</span>
                                     <div>
                                         <h3 class="font-extrabold text-sm sm:text-base text-slate-900 leading-tight">Syarat Sah Puasa (4 Hal)</h3>
-                                        <p class="text-[10px] sm:text-[11px] text-slate-500">Kondisi yang harus terpenuhi agar puasa seseorang sah</p>
+                                        <p class="text-[10px] sm:text-[11px] text-slate-500">Kondisi yang harus terpenuhi agar puasa sah</p>
                                     </div>
                                 </div>
                                 <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 shrink-0">Keabsahan</span>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                 <button type="button" onclick="inspectSyarat('sah', 0, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all flex items-start justify-between gap-1 group">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">1. Islam</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">Non-muslim tidak sah puasanya</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">1. Islam</div><div class="text-[10px] text-slate-500 leading-snug">Non-muslim tidak sah</div></div>
                                     <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                                 <button type="button" onclick="inspectSyarat('sah', 1, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all flex items-start justify-between gap-1 group">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">2. Mumayiz</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">Bisa membedakan baik & buruk</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">2. Mumayiz</div><div class="text-[10px] text-slate-500 leading-snug">Bisa beda baik/buruk</div></div>
                                     <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                                 <button type="button" onclick="inspectSyarat('sah', 2, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all flex items-start justify-between gap-1 group">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">3. Suci Haid & Nifas</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">Suci sepanjang siang hari puasa</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">3. Suci Haid & Nifas</div><div class="text-[10px] text-slate-500 leading-snug">Sepanjang siang</div></div>
                                     <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                                 <button type="button" onclick="inspectSyarat('sah', 3, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all flex items-start justify-between gap-1 group">
-                                    <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">4. Bukan Hari Haram</div>
-                                        <div class="text-[10px] text-slate-500 leading-snug">1 Syawal, 10–13 Dzulhijjah</div>
-                                    </div>
+                                    <div><div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">4. Bukan Hari Haram</div><div class="text-[10px] text-slate-500 leading-snug">1 Syawal & Tasyriq</div></div>
                                     <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Quick Comparison Pill inside Column 2 to balance height with 6 items in Column 1 -->
                         <div class="mt-2 p-2.5 rounded-xl bg-crimson-50/80 border border-crimson-200 flex items-center justify-between gap-2 text-[11px]">
                             <div class="text-crimson-900 leading-snug">
                                 <strong class="text-crimson-700">Inti Perbedaan:</strong> <em>Baligh & Mukim</em> adalah <strong>Syarat Wajib</strong>, sedangkan <em>Mumayiz</em> adalah <strong>Syarat Sah</strong>.
@@ -983,7 +871,6 @@
                     </div>
                 </div>
 
-                <!-- Dynamic Explanation Bar at Bottom (Compact & Always Visible) -->
                 <div id="syaratDetailBox" class="stagger-item delay-4 p-3 sm:p-3.5 rounded-2xl bg-slate-900 text-white flex items-center justify-between gap-3 shrink-0 shadow-md">
                     <div class="flex items-center gap-3">
                         <div class="w-9 h-9 rounded-xl bg-crimson-600 flex items-center justify-center shrink-0">
@@ -998,7 +885,7 @@
             </section>
 
             <!-- ==========================================
-                 SLIDE 7: METODE MARKET PLACE & PENGUMPULAN DATA (30 MENIT)
+                 SLIDE 7: MARKET PLACE ACTIVITY
                  ========================================== -->
             <section class="slide-view p-6 sm:p-10 flex flex-col justify-between" data-slide="6">
                 <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3 stagger-item delay-1">
@@ -1012,7 +899,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto py-3">
-                    <!-- Left Explanation & Steps -->
                     <div class="lg:col-span-4 bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-2">
                         <div class="space-y-3">
                             <span class="px-2.5 py-1 rounded bg-crimson-50 text-crimson-700 font-bold text-xs">Aturan Main Market Place</span>
@@ -1024,84 +910,41 @@
                                 <li>Setelah 7 menit, klik tombol <strong>Tukar Peran</strong> agar semua merasakan jadi penjual & pembeli!</li>
                             </ol>
                         </div>
-
                         <div id="roleStatusBanner" class="p-3.5 rounded-xl bg-slate-900 text-white text-xs space-y-1">
                             <div class="font-bold text-amber-400">PUTARAN 1 AKTIF:</div>
                             <p class="text-slate-300 text-[11px]">Anggota 1 & 2 menjaga toko (Penjual) • Anggota 3, 4, 5 berkeliling belanja ilmu (Pembeli).</p>
                         </div>
                     </div>
 
-                    <!-- Right 6 Booths Grid -->
                     <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 stagger-item delay-3">
                         <div class="bg-white p-4 rounded-2xl border-2 border-crimson-600/20 shadow-sm flex flex-col justify-between hover:border-crimson-600 transition-all">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-extrabold text-crimson-600">KELOMPOK 1</span>
-                                <span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">01</span>
-                            </div>
-                            <div class="my-2">
-                                <div class="font-bold text-sm text-slate-900">Toko Makna & Dalil</div>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Fokus: Pengertian bahasa, istilah & tafsir QS. al-Baqarah: 187</p>
-                            </div>
+                            <div class="flex items-center justify-between"><span class="text-xs font-extrabold text-crimson-600">KELOMPOK 1</span><span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">01</span></div>
+                            <div class="my-2"><div class="font-bold text-sm text-slate-900">Toko Makna & Dalil</div><p class="text-[11px] text-slate-500 mt-0.5">Fokus: Pengertian bahasa, istilah & tafsir QS. al-Baqarah: 183 & 187</p></div>
                             <div class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded text-center role-badge">2 Penjual • 3 Pembeli</div>
                         </div>
-
                         <div class="bg-white p-4 rounded-2xl border-2 border-crimson-600/20 shadow-sm flex flex-col justify-between hover:border-crimson-600 transition-all">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-extrabold text-crimson-600">KELOMPOK 2</span>
-                                <span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">02</span>
-                            </div>
-                            <div class="my-2">
-                                <div class="font-bold text-sm text-slate-900">Toko Syarat Wajib</div>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Fokus: 6 Syarat wajib puasa & keringanan bagi musafir/sakit</p>
-                            </div>
+                            <div class="flex items-center justify-between"><span class="text-xs font-extrabold text-crimson-600">KELOMPOK 2</span><span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">02</span></div>
+                            <div class="my-2"><div class="font-bold text-sm text-slate-900">Toko Syarat Wajib</div><p class="text-[11px] text-slate-500 mt-0.5">Fokus: 6 Syarat wajib puasa & keringanan bagi musafir/sakit</p></div>
                             <div class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded text-center role-badge">2 Penjual • 3 Pembeli</div>
                         </div>
-
                         <div class="bg-white p-4 rounded-2xl border-2 border-crimson-600/20 shadow-sm flex flex-col justify-between hover:border-crimson-600 transition-all">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-extrabold text-crimson-600">KELOMPOK 3</span>
-                                <span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">03</span>
-                            </div>
-                            <div class="my-2">
-                                <div class="font-bold text-sm text-slate-900">Toko Syarat Sah</div>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Fokus: 4 Syarat sah, kasus anak mumayiz & hari diharamkan puasa</p>
-                            </div>
+                            <div class="flex items-center justify-between"><span class="text-xs font-extrabold text-crimson-600">KELOMPOK 3</span><span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">03</span></div>
+                            <div class="my-2"><div class="font-bold text-sm text-slate-900">Toko Syarat Sah</div><p class="text-[11px] text-slate-500 mt-0.5">Fokus: 4 Syarat sah, kasus anak mumayiz & hari diharamkan</p></div>
                             <div class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded text-center role-badge">2 Penjual • 3 Pembeli</div>
                         </div>
-
                         <div class="bg-white p-4 rounded-2xl border-2 border-crimson-600/20 shadow-sm flex flex-col justify-between hover:border-crimson-600 transition-all">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-extrabold text-crimson-600">KELOMPOK 4</span>
-                                <span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">04</span>
-                            </div>
-                            <div class="my-2">
-                                <div class="font-bold text-sm text-slate-900">Toko Rukun & Niat</div>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Fokus: Hadis tabyitul niyyah & beda waktu niat wajib vs sunnah</p>
-                            </div>
+                            <div class="flex items-center justify-between"><span class="text-xs font-extrabold text-crimson-600">KELOMPOK 4</span><span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">04</span></div>
+                            <div class="my-2"><div class="font-bold text-sm text-slate-900">Toko Rukun & Niat</div><p class="text-[11px] text-slate-500 mt-0.5">Fokus: Hadis tabyitul niyyah & beda waktu niat wajib vs sunnah</p></div>
                             <div class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded text-center role-badge">2 Penjual • 3 Pembeli</div>
                         </div>
-
                         <div class="bg-white p-4 rounded-2xl border-2 border-crimson-600/20 shadow-sm flex flex-col justify-between hover:border-crimson-600 transition-all">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-extrabold text-crimson-600">KELOMPOK 5</span>
-                                <span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">05</span>
-                            </div>
-                            <div class="my-2">
-                                <div class="font-bold text-sm text-slate-900">Toko Studi Kasus 1</div>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Fokus: Analisis kasus Dina (8 thn), Pak Budi (Musafir), & Ani</p>
-                            </div>
+                            <div class="flex items-center justify-between"><span class="text-xs font-extrabold text-crimson-600">KELOMPOK 5</span><span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">05</span></div>
+                            <div class="my-2"><div class="font-bold text-sm text-slate-900">Toko Studi Kasus 1</div><p class="text-[11px] text-slate-500 mt-0.5">Fokus: Analisis kasus Dina (8 thn), Pak Budi (Musafir), & Ani</p></div>
                             <div class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded text-center role-badge">2 Penjual • 3 Pembeli</div>
                         </div>
-
                         <div class="bg-white p-4 rounded-2xl border-2 border-crimson-600/20 shadow-sm flex flex-col justify-between hover:border-crimson-600 transition-all">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-extrabold text-crimson-600">KELOMPOK 6</span>
-                                <span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">06</span>
-                            </div>
-                            <div class="my-2">
-                                <div class="font-bold text-sm text-slate-900">Toko Studi Kasus 2</div>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Fokus: Analisis kasus Rina (Haid) & menahan lapar fajar–magrib</p>
-                            </div>
+                            <div class="flex items-center justify-between"><span class="text-xs font-extrabold text-crimson-600">KELOMPOK 6</span><span class="w-6 h-6 rounded-full bg-crimson-50 text-crimson-600 flex items-center justify-center text-xs font-bold">06</span></div>
+                            <div class="my-2"><div class="font-bold text-sm text-slate-900">Toko Studi Kasus 2</div><p class="text-[11px] text-slate-500 mt-0.5">Fokus: Analisis kasus Rina (Haid) & menahan lapar fajar–magrib</p></div>
                             <div class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded text-center role-badge">2 Penjual • 3 Pembeli</div>
                         </div>
                     </div>
@@ -1109,7 +952,7 @@
             </section>
 
             <!-- ==========================================
-                 SLIDE 8: LKPD 1 INTERAKTIF - SIMULASI & PEMBUKTIAN (LAMPIRAN 1 MODUL)
+                 SLIDE 8: LKPD 1 INTERACTIVE TABLE
                  ========================================== -->
             <section class="slide-view p-6 sm:p-10 flex flex-col justify-between" data-slide="7">
                 <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2.5 stagger-item delay-1">
@@ -1125,20 +968,17 @@
                     </div>
                 </div>
 
-                <!-- Interactive Table matching LKPD 1 exactly -->
                 <div class="my-auto py-2 overflow-x-auto stagger-item delay-2">
                     <table class="w-full min-w-[600px] text-left border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 text-xs">
                         <thead>
-                            <tr class=" crimson-glass text-white">
+                            <tr class="crimson-glass text-white">
                                 <th class="p-3 w-8 text-center">No</th>
                                 <th class="p-3 w-1/3">Pernyataan / Kasus (Sesuai LKPD 1)</th>
                                 <th class="p-3 w-1/4">Pilih Kategori Hukum</th>
                                 <th class="p-3">Alasan & Pembuktian Fikih</th>
                             </tr>
                         </thead>
-                        <tbody id="lkpdTableBody" class="divide-y divide-slate-200">
-                            <!-- Populated by JS -->
-                        </tbody>
+                        <tbody id="lkpdTableBody" class="divide-y divide-slate-200"></tbody>
                     </table>
                 </div>
 
@@ -1148,7 +988,7 @@
             </section>
 
             <!-- ==========================================
-                 SLIDE 9: KUIS INTERAKTIF & EVALUASI PERTEMUAN 1
+                 SLIDE 9: KUIS INTERAKTIF & EVALUASI
                  ========================================== -->
             <section class="slide-view p-6 sm:p-10 flex flex-col justify-between" data-slide="8">
                 <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3 stagger-item delay-1">
@@ -1163,23 +1003,16 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto py-3 items-stretch">
-                    <!-- Left: Active Question Area -->
                     <div class="lg:col-span-8 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-2">
                         <div>
                             <div class="flex items-center justify-between text-xs font-bold text-slate-400 mb-2">
                                 <span id="quizNumberIndicator">SOAL 1 DARI 5</span>
                                 <span class="text-crimson-600">Kurikulum Merdeka • MTs Al-Hidayah</span>
                             </div>
-                            <h3 id="quizQuestionText" class="text-base sm:text-lg font-extrabold text-slate-900 leading-snug mb-4">
-                                Loading soal...
-                            </h3>
-                            <div id="quizOptionsContainer" class="space-y-2.5">
-                                <!-- Options injected by JS -->
-                            </div>
+                            <h3 id="quizQuestionText" class="text-base sm:text-lg font-extrabold text-slate-900 leading-snug mb-4">Loading soal...</h3>
+                            <div id="quizOptionsContainer" class="space-y-2.5"></div>
                         </div>
-
                         <div id="quizExplanationBox" class="hidden mt-4 p-3.5 rounded-xl bg-slate-900 text-white text-xs leading-relaxed"></div>
-
                         <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-100">
                             <button onclick="prevQuizQuestion()" class="px-4 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold">Soal Sebelumnya</button>
                             <button onclick="nextQuizQuestion()" class="px-4 py-1.5 rounded-xl crimson-glass text-white text-xs font-bold flex items-center gap-1.5">
@@ -1189,51 +1022,38 @@
                         </div>
                     </div>
 
-                    <!-- Right: Essay / Evaluasi Lisan Cepat (Lampiran 3 Pertemuan 1) -->
                     <div class="lg:col-span-4 bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-3">
                         <div>
                             <span class="text-xs font-extrabold uppercase tracking-wider text-crimson-600">Lampiran 3 • Evaluasi Singkat</span>
                             <h4 class="font-bold text-sm text-slate-800 mt-0.5 mb-3">Tanya Jawab Lisan (Klik untuk Kunci)</h4>
                             <div class="space-y-2 text-xs">
                                 <details class="group p-2.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer">
-                                    <summary class="font-bold text-slate-800 list-none flex justify-between items-center">
-                                        <span>1. Arti puasa bahasa & istilah?</span>
-                                        <i class="ph-bold ph-caret-down text-crimson-600"></i>
-                                    </summary>
+                                    <summary class="font-bold text-slate-800 list-none flex justify-between items-center"><span>1. Arti puasa bahasa & istilah?</span><i class="ph-bold ph-caret-down text-crimson-600"></i></summary>
                                     <p class="text-[11px] text-slate-600 mt-1.5 pt-1.5 border-t border-slate-200">Bahasa: menahan/mencegah. Istilah: menahan diri dari pembatal puasa sejak terbit fajar hingga terbenam matahari disertai niat.</p>
                                 </details>
                                 <details class="group p-2.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer">
-                                    <summary class="font-bold text-slate-800 list-none flex justify-between items-center">
-                                        <span>2. Sebutkan 3 syarat wajib puasa!</span>
-                                        <i class="ph-bold ph-caret-down text-crimson-600"></i>
-                                    </summary>
+                                    <summary class="font-bold text-slate-800 list-none flex justify-between items-center"><span>2. Sebutkan 3 syarat wajib puasa?</span><i class="ph-bold ph-caret-down text-crimson-600"></i></summary>
                                     <p class="text-[11px] text-slate-600 mt-1.5 pt-1.5 border-t border-slate-200">Islam, baligh, berakal sehat, mampu, suci dari haid/nifas, dan mukim (menetap).</p>
                                 </details>
                                 <details class="group p-2.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer">
-                                    <summary class="font-bold text-slate-800 list-none flex justify-between items-center">
-                                        <span>3. Waktu niat wajib vs sunnah?</span>
-                                        <i class="ph-bold ph-caret-down text-crimson-600"></i>
-                                    </summary>
-                                    <p class="text-[11px] text-slate-600 mt-1.5 pt-1.5 border-t border-slate-200">Wajib: malam hari sebelum fajar. Sunnah: boleh setelah fajar sampai sebelum tergelincir matahari asal belum batal.</p>
+                                    <summary class="font-bold text-slate-800 list-none flex justify-between items-center"><span>3. Waktu niat wajib vs sunnah?</span><i class="ph-bold ph-caret-down text-crimson-600"></i></summary>
+                                    <p class="text-[11px] text-slate-600 mt-1.5 pt-1.5 border-t border-slate-200">Wajib: malam hari sebelum fajar. Sunnah: boleh setelah fajar sampai sebelum zuhur asal belum batal.</p>
                                 </details>
                                 <details class="group p-2.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer">
-                                    <summary class="font-bold text-slate-800 list-none flex justify-between items-center">
-                                        <span>4. Apa saja dua rukun puasa?</span>
-                                        <i class="ph-bold ph-caret-down text-crimson-600"></i>
-                                    </summary>
+                                    <summary class="font-bold text-slate-800 list-none flex justify-between items-center"><span>4. Apa saja dua rukun puasa?</span><i class="ph-bold ph-caret-down text-crimson-600"></i></summary>
                                     <p class="text-[11px] text-slate-600 mt-1.5 pt-1.5 border-t border-slate-200">1) Niat, dan 2) Menahan diri dari hal yang membatalkan puasa sejak fajar sampai magrib.</p>
                                 </details>
                             </div>
                         </div>
                         <div class="p-3 rounded-xl bg-crimson-50 border border-crimson-100 text-[11px] text-crimson-800 font-medium">
-                            <strong>Diferensiasi:</strong> Siswa yang sudah paham diberi eksplorasi kitab fikih; siswa yang kesulitan dibimbing dengan tutor sebaya.
+                            <strong>Diferensiasi:</strong> Siswa yang sudah paham diberi eksplorasi kitab fikih; siswa kesulitan dibimbing tutor sebaya.
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- ==========================================
-                 SLIDE 10: PENUTUP, REFLEKSI BINTANG & TINDAK LANJUT (10 MENIT)
+                 SLIDE 10: PENUTUP, REFLEKSI & PENGESAHAN
                  ========================================== -->
             <section class="slide-view p-6 sm:p-10 flex flex-col justify-between" data-slide="9">
                 <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3 stagger-item delay-1">
@@ -1245,7 +1065,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto py-3">
-                    <!-- Left: Refleksi Peserta Didik (Sesuai Bagian VII Modul) -->
                     <div class="lg:col-span-6 bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-2">
                         <div class="space-y-3">
                             <h3 class="font-extrabold text-base text-slate-900 flex items-center gap-2">
@@ -1263,7 +1082,6 @@
                                 </div>
                             </div>
 
-                            <!-- Star Rating Interactive -->
                             <div class="p-3.5 rounded-xl bg-crimson-50/70 border border-crimson-200 text-center space-y-1.5">
                                 <div class="text-xs font-bold text-crimson-800">Berapa bintang (1–5) untuk usaha terbaikmu hari ini?</div>
                                 <div class="flex items-center justify-center gap-2 text-2xl text-amber-400" id="starContainer">
@@ -1278,7 +1096,6 @@
                         </div>
                     </div>
 
-                    <!-- Right: Tugas Tindak Lanjut, Rencana Pertemuan 2 & Pengesahan Modul -->
                     <div class="lg:col-span-6 flex flex-col gap-3.5 justify-between stagger-item delay-3">
                         <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
                             <div class="flex items-center justify-between">
@@ -1293,7 +1110,6 @@
                             </div>
                         </div>
 
-                        <!-- Pengesahan Modul Ajar Card -->
                         <div class="bg-slate-900 text-white rounded-2xl p-5 shadow-md flex flex-col justify-between space-y-3">
                             <div class="flex items-center justify-between border-b border-white/10 pb-2">
                                 <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Identitas Pengesahan Modul Ajar</span>
@@ -1325,31 +1141,26 @@
     </main>
 
     <footer class="w-full px-3 sm:px-8 pb-2.5 pt-1 flex items-center justify-between z-30 shrink-0">
-        <!-- Left Glossary Quick Button -->
         <button onclick="toggleGlossaryModal()" class="px-3 py-2 rounded-xl bg-white/90 hover:bg-white text-slate-700 hover:text-crimson-600 shadow-sm border border-slate-200/80 text-xs font-bold flex items-center gap-1.5 transition-all">
             <i class="ph-fill ph-book-bookmark text-crimson-600 text-base"></i>
             <span class="hidden sm:inline">Glosarium & Pustaka</span>
         </button>
 
-        <!-- Center Floating Slide Control Bar -->
         <div class="flex items-center gap-1.5 sm:gap-2 bg-white/95 backdrop-blur-md px-2.5 sm:px-3 py-1.5 rounded-2xl shadow-lg border border-slate-200/90">
-            <button onclick="prevSlide()" id="prevBtn" class="w-8 h-8 rounded-xl hover:bg-slate-100 flex items-center justify-center text-slate-700 disabled:opacity-30 transition-all" title="Slide Sebelumnya (Panah Kiri)">
+            <button onclick="prevSlide()" id="prevBtn" class="w-8 h-8 rounded-xl hover:bg-slate-100 flex items-center justify-center text-slate-700 disabled:opacity-30 transition-all" title="Slide Sebelumnya">
                 <i class="ph-bold ph-caret-left"></i>
             </button>
-            
             <div class="px-2 sm:px-3 flex items-center gap-2 cursor-pointer" onclick="toggleMobileMenu()" title="Klik untuk lompat ke slide">
                 <span id="slideCounter" class="text-xs font-extrabold text-crimson-600">01 / 10</span>
                 <div class="w-16 sm:w-36 h-1.5 bg-slate-200 rounded-full overflow-hidden">
                     <div id="slideProgressBar" class="h-full crimson-glass transition-all duration-500" style="width: 10%"></div>
                 </div>
             </div>
-
-            <button onclick="nextSlide()" id="nextBtn" class="w-8 h-8 rounded-xl crimson-glass text-white flex items-center justify-center hover:scale-105 transition-all" title="Slide Berikutnya (Panah Kanan)">
+            <button onclick="nextSlide()" id="nextBtn" class="w-8 h-8 rounded-xl crimson-glass text-white flex items-center justify-center hover:scale-105 transition-all" title="Slide Berikutnya">
                 <i class="ph-bold ph-caret-right"></i>
             </button>
         </div>
 
-        <!-- Right Keyboard & Fullscreen Hint -->
         <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-500">
             <button onclick="toggleFullscreen()" class="sm:hidden w-8 h-8 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-crimson-600">
                 <i class="ph-bold ph-corners-out"></i>
@@ -1358,14 +1169,10 @@
         </div>
     </footer>
 
-    <!-- ==========================================
-         MODAL 1: POP-UP TAFSIR & ARTI PER KATA ARAB
-         ========================================== -->
+    <!-- MODAL POPUP ARABIC WORD -->
     <div id="wordPopupModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4" onclick="closeWordPopup()">
         <div id="wordPopupCard" class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-2 border-crimson-600/20 transform scale-95 opacity-0 transition-all duration-200 space-y-4 relative overflow-hidden" onclick="event.stopPropagation()">
-            <!-- Top Decorative Bar -->
             <div class="absolute top-0 inset-x-0 h-2 crimson-glass"></div>
-
             <div class="flex items-center justify-between pt-1">
                 <span class="px-2.5 py-1 rounded-full bg-crimson-50 text-crimson-700 text-[10px] font-extrabold uppercase tracking-wider border border-crimson-200">
                     <i class="ph-fill ph-sparkle"></i> Bedah Kata & Hikmah Fikih
@@ -1374,14 +1181,10 @@
                     <i class="ph-bold ph-x"></i>
                 </button>
             </div>
-
-            <!-- Arabic Word Highlight -->
             <div class="text-center py-4 px-3 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
                 <div id="popupArabicWord" dir="rtl" class="font-arabic text-4xl sm:text-5xl text-crimson-600 leading-relaxed font-bold"></div>
                 <div id="popupTranslit" class="text-xs font-bold uppercase tracking-widest text-slate-400"></div>
             </div>
-
-            <!-- Meaning & Deep Explanation -->
             <div class="space-y-2.5">
                 <div class="p-3 rounded-xl bg-crimson-50/70 border border-crimson-100 text-center">
                     <div class="text-[10px] font-bold text-crimson-600 uppercase">Arti Kata / Lafaz:</div>
@@ -1394,42 +1197,35 @@
                     <p id="popupExplanation" class="text-xs text-slate-200 leading-relaxed"></p>
                 </div>
             </div>
-
             <button type="button" onclick="closeWordPopup()" class="w-full py-2.5 rounded-xl crimson-glass text-white font-bold text-xs shadow-md hover:opacity-95 transition-opacity">
                 Paham & Tutup (Esc)
             </button>
         </div>
     </div>
 
-    <!-- ==========================================
-         MODAL 4: DAFTAR SLIDE CEPAT (MOBILE & DESKTOP DRAWER)
-         ========================================== -->
+    <!-- MOBILE DRAWER NAV -->
     <div id="mobileMenuModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-900/40 backdrop-blur-sm p-2 sm:p-4" onclick="toggleMobileMenu()">
         <div class="bg-white rounded-3xl max-w-md w-full p-5 shadow-2xl border border-white space-y-3" onclick="event.stopPropagation()">
             <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
                 <span class="text-xs font-extrabold uppercase tracking-wider text-crimson-600">Navigasi Cepat 10 Slide</span>
-                <button onclick="toggleMobileMenu()" class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center">
-                    <i class="ph-bold ph-x"></i>
-                </button>
+                <button onclick="toggleMobileMenu()" class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center"><i class="ph-bold ph-x"></i></button>
             </div>
             <div class="grid grid-cols-1 gap-1.5 max-h-[60vh] overflow-y-auto text-xs font-bold">
                 <button onclick="goToSlide(0); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>01. Sampul Pertemuan 1</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
-                <button onclick="goToSlide(1); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>02. Pendahuluan & Asesmen Diagnostik</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
-                <button onclick="goToSlide(2); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>03. Apersepsi, Pemantik & Tujuan</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
-                <button onclick="goToSlide(3); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>04. Pengertian & Dalil (Al-Baqarah 183 & 187)</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
-                <button onclick="goToSlide(4); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>05. Rukun, Hadis Niat & Lafaz Niat</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
-                <button onclick="goToSlide(5); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>06. Matriks Syarat Wajib & Syarat Sah</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
-                <button onclick="goToSlide(6); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>07. Aktivitas Kelompok Market Place</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
-                <button onclick="goToSlide(7); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>08. Tabel Interaktif LKPD 1</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
-                <button onclick="goToSlide(8); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>09. Kuis Interaktif & Evaluasi</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
-                <button onclick="goToSlide(9); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>10. Penutup, Refleksi Bintang & Pengesahan</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
+                <button onclick="goToSlide(1); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>02. Pendahuluan & Diagnostik</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
+                <button onclick="goToSlide(2); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>03. Apersepsi & Pemantik</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
+                <button onclick="goToSlide(3); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>04. Pengertian & Dalil (QS. 2:183 & 187)</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
+                <button onclick="goToSlide(4); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>05. Rukun & Niat</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
+                <button onclick="goToSlide(5); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>06. Syarat Wajib & Sah</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
+                <button onclick="goToSlide(6); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>07. Market Place Kelompok</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
+                <button onclick="goToSlide(7); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>08. Tabel LKPD 1</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
+                <button onclick="goToSlide(8); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>09. Kuis Interaktif</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
+                <button onclick="goToSlide(9); toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 text-left flex justify-between"><span>10. Penutup & Pengesahan</span><i class="ph-bold ph-arrow-right text-crimson-600"></i></button>
             </div>
         </div>
     </div>
 
-    <!-- ==========================================
-         MODAL 2: GLOSARIUM & DAFTAR PUSTAKA (LAMPIRAN 4 & 5)
-         ========================================== -->
+    <!-- GLOSSARY MODAL -->
     <div id="glossaryModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4" onclick="toggleGlossaryModal()">
         <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[82vh] overflow-y-auto p-6 shadow-2xl border border-white" onclick="event.stopPropagation()">
             <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
@@ -1437,37 +1233,30 @@
                     <span class="text-xs font-bold text-crimson-600 uppercase">Lampiran 4 & Lampiran 5 Modul Ajar</span>
                     <h3 class="text-lg font-extrabold text-slate-900">Glosarium Fikih Puasa & Daftar Pustaka</h3>
                 </div>
-                <button onclick="toggleGlossaryModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-crimson-50 text-slate-600 flex items-center justify-center">
-                    <i class="ph-bold ph-x"></i>
-                </button>
+                <button onclick="toggleGlossaryModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-crimson-50 text-slate-600 flex items-center justify-center"><i class="ph-bold ph-x"></i></button>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs mb-6">
                 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Shiyam/Shaum:</strong> Menahan diri dari hal yang membatalkan puasa sejak fajar hingga magrib disertai niat.</div>
                 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Imsak:</strong> Menahan diri dari makan, minum, dan pembatal puasa lainnya.</div>
                 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Sahur:</strong> Makan dan minum pada akhir malam menjelang fajar untuk berpuasa.</div>
                 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Iftar:</strong> Berbuka puasa ketika matahari telah terbenam.</div>
-                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Baligh:</strong> Telah sampai usia dewasa menurut syariat (ditandai ihtilam bagi laki-laki dan haid bagi perempuan).</div>
-                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Mumayiz:</strong> Anak yang telah dapat membedakan antara yang baik dan buruk.</div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Baligh:</strong> Telah sampai usia dewasa menurut syariat.</div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Mumayiz:</strong> Anak yang dapat membedakan baik dan buruk.</div>
                 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Mukim:</strong> Menetap, tidak sedang bepergian jauh (musafir).</div>
-                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Hilal:</strong> Bulan sabit yang tampak pada tanggal 1 bulan Hijriah.</div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><strong>Taqdir:</strong> Memperkirakan waktu ibadah di daerah yang siang malamnya tidak normal.</div>
             </div>
-
             <div class="p-4 rounded-2xl bg-crimson-50/50 border border-crimson-100 text-xs space-y-1.5">
                 <div class="font-bold text-crimson-800">Referensi Utama (Daftar Pustaka Modul):</div>
                 <ul class="list-disc list-inside text-slate-600 space-y-1">
                     <li>Ma’arif, Zainul. <em>Fikih MTs Kelas VIII</em>. Jakarta: Kemenag RI, 2020.</li>
                     <li>Zuhaili, Wahbah. <em>Fikih Imam Syafi’i</em>. Jakarta: Al-Mahira, 2017.</li>
-                    <li>Muhammad bin Qasim. <em>Fath al-Qarib al-Mujib</em>. Jakarta: Dar al-Kutub al-Islamiyah, 2014.</li>
                     <li>Al-Bugha, Musthafa Dib. <em>Ringkasan Fikih Mazhab Syafi’i</em>. Jakarta: Noura Books, 2012.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- ==========================================
-         MODAL 3: PENGATUR WAKTU PEMBELAJARAN (80 MENIT)
-         ========================================== -->
+    <!-- TIMER MODAL -->
     <div id="timerModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4" onclick="toggleTimerModal()">
         <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-white text-center space-y-4" onclick="event.stopPropagation()">
             <div class="text-xs font-bold uppercase tracking-wider text-crimson-600">Alokasi Waktu Pertemuan 1</div>
@@ -1477,7 +1266,7 @@
                 <button onclick="setTimerMinutes(15)" class="p-2 rounded-xl bg-slate-100 hover:bg-crimson-50 font-bold text-slate-700">15 Menit (Market Place)</button>
             </div>
             <div class="flex justify-center gap-2 pt-2">
-                <button onclick="startPauseTimer()" id="timerToggleBtn" class="px-5 py-2 rounded-xl crimson-glass text-white text-xs font-bold">Mulai / Jeda</button>
+                <button onclick="startPauseTimer()" class="px-5 py-2 rounded-xl crimson-glass text-white text-xs font-bold">Mulai / Jeda</button>
                 <button onclick="setTimerMinutes(80)" class="px-4 py-2 rounded-xl bg-slate-200 text-slate-700 text-xs font-bold">Reset 80m</button>
             </div>
         </div>
@@ -1485,27 +1274,27 @@
 
     <script>
         /* =========================================================
-           1. DATA PER KATA ARAB (QS. AL-BAQARAH: 183, 187, HADIS & NIAT)
+           ARABIC WORDS DATA (QS. 2:183, 2:187, HADITH & NIYYAH)
            ========================================================= */
         const baqarah183Words = [
             { ar: "يَا أَيُّهَا", tr: "Yaa ayyuhaa", id: "Wahai", exp: "Seruan penuh kasih sayang dari Allah Swt. untuk menarik perhatian hamba-hamba pilihan-Nya." },
             { ar: "الَّذِينَ", tr: "Alladziina", id: "Orang-orang yang", exp: "Kata sambung yang menunjuk kepada kelompok manusia yang memiliki keimanan di dalam hatinya." },
             { ar: "آمَنُوا", tr: "Aamanuu", id: "Beriman", exp: "Panggilan cinta kepada orang beriman: karena iman di hati membuat perintah berat terasa ringan dan membahagiakan." },
-            { ar: "كُتِبَ", tr: "Kutiba", id: "Diwajibkan (Ditetapkan)", exp: "Secara bahasa berarti 'ditulis', bermakna ketetapan hukum fardu (wajib) dari Allah Swt. atas setiap mukallaf." },
+            { ar: "كُتِبَ", tr: "Kutiba", id: "Diwajibkan (Ditetapkan)", exp: "Secara bahasa berarti 'ditulis', bermakna ketetapan hukum fardu (wajib) dari Allah Swt." },
             { ar: "عَلَيْكُمُ", tr: "'Alaykumu", id: "Atas kalian", exp: "Menunjukkan bahwa kewajiban puasa ini dibebankan kepada umat Nabi Muhammad Saw. yang memenuhi syarat wajib." },
             { ar: "الصِّيَامُ", tr: "Ash-Shiyaamu", id: "Ibadah Puasa", exp: "Menahan diri dari makan, minum, dan segala hal yang membatalkan puasa disertai niat sejak terbit fajar hingga magrib." },
             { ar: "كَمَا", tr: "Kamaa", id: "Sebagaimana", exp: "Kata penyerupaan yang menghibur hati orang beriman bahwa ibadah puasa adalah syariat mulia lintas generasi." },
             { ar: "كُتِبَ", tr: "Kutiba", id: "Telah diwajibkan", exp: "Penegasan bahwa ibadah menahan diri ini merupakan tradisi ruhani para nabi dan umat terdahulu." },
             { ar: "عَلَى", tr: "'Alaa", id: "Atas", exp: "Kata depan yang menghubungkan ketetapan hukum kepada umat-umat terdahulu." },
-            { ar: "الَّذِينَ", tr: "Alladziina", id: "Orang-orang yang", exp: "Menunjuk pada umat-umat para nabi terdahulu sejak zaman Nabi Adam a.s. hingga sebelum Nabi Muhammad Saw." },
+            { ar: "الَّذِينَ", tr: "Alladziina", id: "Orang-orang yang", exp: "Menunjuk pada umat-umat para nabi terdahulu sejak zaman Nabi Adam a.s." },
             { ar: "مِنْ قَبْلِكُمْ", tr: "Min qablikum", id: "Dari sebelum kalian", exp: "Menyadarkan kita bahwa kita tidak sendirian dalam berjuang menahan hawa nafsu demi meraih cinta Allah Swt." },
             { ar: "لَعَلَّكُمْ", tr: "La'allakum", id: "Agar kalian / Mudah-mudahan kalian", exp: "Menunjukkan tujuan agung (hikmah utama) disyariatkannya ketetapan ibadah puasa." },
-            { ar: "تَتَّقُونَ", tr: "Tattaquun", id: "Bertakwa", exp: "Puncak tujuan puasa: melahirkan pribadi yang jujur, taat, penuh empati sosial, dan senantiasa menjaga diri karena cinta kepada Allah Swt." }
+            { ar: "تَتَّقُونَ", tr: "Tattaquun", id: "Bertakwa", exp: "Puncak tujuan puasa: melahirkan pribadi yang jujur, taat, penuh empati sosial, dan senantiasa menjaga diri karena cinta kepada Allah." }
         ];
 
         const baqarah187Words = [
-            { ar: "وَكُلُوا", tr: "Wa kuluu", id: "Dan makanlah kalian", exp: "Perintah yang menunjukkan kebolehan (ibahah) makan pada malam hari bulan Ramadhan hingga sebelum fajar menyingsing." },
-            { ar: "وَاشْرَبُوا", tr: "Wasy-rabuu", id: "Dan minumlah kalian", exp: "Kasih sayang Allah Swt. agar hamba-Nya mengisi kekuatan fisik dengan minum saat sahur sebelum memulai ibadah puasa." },
+            { ar: "وَكُلُوا", tr: "Wa kuluu", id: "Dan makanlah kalian", exp: "Perintah kebolehan makan pada malam hari bulan Ramadhan hingga sebelum fajar." },
+            { ar: "وَاشْرَبُوا", tr: "Wasy-rabuu", id: "Dan minumlah kalian", exp: "Kasih sayang Allah agar hamba-Nya mengisi kekuatan fisik dengan minum saat sahur." },
             { ar: "حَتَّىٰ", tr: "Hattaa", id: "Sehingga / Sampai", exp: "Kata batas waktu (ghayah) yang membatasi waktu bolehnya makan dan minum di malam Ramadhan." },
             { ar: "يَتَبَيَّنَ", tr: "Yatabayyana", id: "Menjadi jelas / terang", exp: "Batas peralihan waktu harus benar-benar yakin dengan masuknya waktu fajar shadiq (Subuh)." },
             { ar: "لَكُمُ", tr: "Lakumu", id: "Bagi kalian", exp: "Menunjukkan kemudahan syariat Islam yang dapat diamati oleh umat manusia di berbagai penjuru bumi." },
@@ -1515,38 +1304,38 @@
             { ar: "الْخَيْطِ", tr: "Al-Khaythi", id: "Benang (gelapnya malam)", exp: "Pasangan kiasan yang menggambarkan bayangan gelap malam yang mulai bergeser." },
             { ar: "الْأَسْوَدِ", tr: "Al-Aswadi", id: "Yang hitam (malam)", exp: "Melambangkan kegelapan malam yang berakhir seiring terbitnya fajar." },
             { ar: "مِنَ", tr: "Mina", id: "Yaitu dari", exp: "Penjelas (bayan) bahwa yang dimaksud benang putih itu adalah cahaya fajar." },
-            { ar: "الْفَجْرِ ۖ", tr: "Al-Fajri", id: "Fajar Shadiq (Waktu Subuh)", exp: "Waktu dimulainya rukun menahan diri (imsak syar'i) dari segala hal yang membatalkan puasa." },
+            { ar: "الْفَجْرِ ۖ", tr: "Al-Fajri", id: "Fajar Shadiq (Waktu Subuh)", exp: "Waktu dimulainya rukun menahan diri dari segala hal yang membatalkan puasa." },
             { ar: "ثُمَّ", tr: "Tsumma", id: "Kemudian", exp: "Kata hubung yang menunjukkan urutan perintah untuk melanjutkan ibadah puasa di siang hari." },
-            { ar: "أَتِمُّوا", tr: "Atimmuu", id: "Sempurnakanlah oleh kalian", exp: "Perintah wajib untuk menjaga puasa secara utuh, baik dari pembatal fisik maupun menjaga akhlak dan lisan." },
+            { ar: "أَتِمُّوا", tr: "Atimmuu", id: "Sempurnakanlah oleh kalian", exp: "Perintah wajib untuk menjaga puasa secara utuh, baik dari pembatal fisik maupun akhlak." },
             { ar: "الصِّيَامَ", tr: "Ash-Shiyaama", id: "Ibadah Puasa itu", exp: "Menahan diri dari makan, minum, dan segala pembatalnya disertai niat karena Allah Swt." },
             { ar: "إِلَى", tr: "Ilaa", id: "Sampai", exp: "Batas akhir waktu berpuasa pada hari tersebut." },
-            { ar: "اللَّيْلِ", tr: "Al-Layli", id: "Datangnya malam (Waktu Magrib)", exp: "Ditandai dengan terbenamnya bulatan matahari secara sempurna, saat dianjurkannya menyegerakan berbuka." }
+            { ar: "اللَّيْلِ", tr: "Al-Layli", id: "Datangnya malam (Magrib)", exp: "Ditandai dengan terbenamnya bulatan matahari secara sempurna, saat dianjurkan menyegerakan berbuka." }
         ];
 
         const hadithNiatWords = [
-            { ar: "مَنْ", tr: "Man", id: "Barang siapa", exp: "Kata syarat yang mencakup setiap muslim yang mukallaf (dikenai kewajiban syariat)." },
-            { ar: "لَمْ", tr: "Lam", id: "Tidak", exp: "Kata penafian yang menegaskan pentingnya melakukan rukun niat." },
-            { ar: "يُبَيِّتِ", tr: "Yubayyiti", id: "Menginapkan / Meniatkan di malam hari", exp: "Tabyitul Niyyah: memasang niat puasa wajib di antara waktu terbenam matahari (Magrib) hingga sebelum fajar (Subuh)." },
-            { ar: "الصِّيَامَ", tr: "Ash-Shiyaama", id: "Puasa (Wajib)", exp: "Para ulama menjelaskan bahwa yang dimaksud dalam hadis ini adalah puasa wajib (Ramadhan, qadha, nadzar)." },
-            { ar: "قَبْلَ", tr: "Qabla", id: "Sebelum", exp: "Keterangan waktu bahwa niat puasa wajib tidak sah jika baru dibuat setelah Subuh tiba." },
+            { ar: "مَنْ", tr: "Man", id: "Barang siapa", exp: "Kata syarat yang mencakup setiap muslim yang mukallaf." },
+            { ar: "لَمْ", tr: "Lam", id: "Tidak", exp: "Kata penafian yang menegaskan pentingnya rukun niat." },
+            { ar: "يُبَيِّتِ", tr: "Yubayyiti", id: "Menginapkan / Meniatkan malam hari", exp: "Tabyitul Niyyah: memasang niat puasa wajib di antara magrib hingga sebelum fajar." },
+            { ar: "الصِّيَامَ", tr: "Ash-Shiyaama", id: "Puasa (Wajib)", exp: "Yang dimaksud dalam hadis ini adalah puasa wajib (Ramadhan, qadha, nadzar)." },
+            { ar: "قَبْلَ", tr: "Qabla", id: "Sebelum", exp: "Keterangan waktu bahwa niat puasa wajib tidak sah jika baru dibuat setelah Subuh." },
             { ar: "الْفَجْرِ", tr: "Al-Fajri", id: "Terbit fajar (Subuh)", exp: "Batas akhir waktu berniat untuk puasa wajib." },
-            { ar: "فَلَا", tr: "Falaa", id: "Maka tidak ada (tidak sah)", exp: "Menunjukkan bahwa niat adalah rukun utama yang menentukan sah atau tidaknya puasa." },
-            { ar: "صِيَامَ", tr: "Shiyaama", id: "Puasa", exp: "Ibadah puasanya dianggap belum memenuhi rukun apabila tanpa niat di malam hari." },
+            { ar: "فَلَا", tr: "Falaa", id: "Maka tidak ada (tidak sah)", exp: "Menunjukkan niat adalah rukun utama penentu sah tidaknya puasa." },
+            { ar: "صِيَامَ", tr: "Shiyaama", id: "Puasa", exp: "Ibadah puasanya dianggap belum memenuhi rukun tanpa niat malam hari." },
             { ar: "لَهُ", tr: "Lahuu", id: "Baginya", exp: "Kembali kepada orang yang berpuasa wajib tersebut." }
         ];
 
         const lafazNiatWords = [
-            { ar: "نَوَيْتُ", tr: "Nawaitu", id: "Aku berniat", exp: "Meneguhkan tekad di dalam hati dengan sadar untuk melaksanakan ibadah puasa." },
-            { ar: "صَوْمَ", tr: "Shauma", id: "Berpuasa", exp: "Menahan diri dari segala pembatal puasa sejak terbit fajar hingga terbenam matahari." },
-            { ar: "غَدٍ", tr: "Ghadin", id: "Esok hari", exp: "Menunjukkan niat dilakukan pada malam hari untuk puasa di siang hari esoknya." },
+            { ar: "نَوَيْتُ", tr: "Nawaitu", id: "Aku berniat", exp: "Meneguhkan tekad di dalam hati dengan sadar untuk berpuasa." },
+            { ar: "صَوْمَ", tr: "Shauma", id: "Berpuasa", exp: "Menahan diri dari pembatal puasa sejak terbit fajar hingga terbenam matahari." },
+            { ar: "غَدٍ", tr: "Ghadin", id: "Esok hari", exp: "Menunjukkan niat dilakukan pada malam hari untuk puasa esoknya." },
             { ar: "عَنْ", tr: "'An", id: "Dari / Untuk", exp: "Kata depan yang menjelaskan jenis puasa yang ditunaikan." },
-            { ar: "أَدَاءِ", tr: "Adaa'i", id: "Menunaikan tepat pada waktunya", exp: "Disebut 'Adaa' karena dikerjakan langsung di bulan Ramadhan (berbeda dengan Qadha di luar Ramadhan)." },
-            { ar: "فَرْضِ", tr: "Fardhi", id: "Kewajiban (Fardu)", exp: "Menegaskan bahwa puasa Ramadhan hukumnya fardu 'ain bagi setiap muslim yang memenuhi syarat." },
+            { ar: "أَدَاءِ", tr: "Adaa'i", id: "Menunaikan tepat waktu", exp: "Disebut 'Adaa' karena dikerjakan langsung di bulan Ramadhan." },
+            { ar: "فَرْضِ", tr: "Fardhi", id: "Kewajiban (Fardu)", exp: "Menegaskan bahwa puasa Ramadhan hukumnya fardu 'ain." },
             { ar: "شَهْرِ", tr: "Syahri", id: "Bulan", exp: "Menunjuk pada bulan kemuliaan dalam kalender Hijriah." },
             { ar: "رَمَضَانَ", tr: "Ramadhaana", id: "Ramadhan", exp: "Ta'yin (menentukan jenis puasa wajibnya), yaitu puasa bulan suci Ramadhan." },
             { ar: "هٰذِهِ", tr: "Haadzihis", id: "Ini", exp: "Kata tunjuk untuk tahun berjalan." },
             { ar: "السَّنَةِ", tr: "As-Sanati", id: "Tahun", exp: "Menunjukkan pelaksanaan puasa Ramadhan pada tahun tersebut." },
-            { ar: "لِلّٰهِ", tr: "Lillaahi", id: "Karena Allah", exp: "Inti Kurikulum Berbasis Cinta: memurnikan niat ibadah (ikhlas) semata-mata karena cinta kepada Allah." },
+            { ar: "لِلّٰهِ", tr: "Lillaahi", id: "Karena Allah", exp: "Inti Kurikulum Berbasis Cinta: memurnikan niat semata karena Allah." },
             { ar: "تَعَالَى", tr: "Ta'aalaa", id: "Yang Maha Tinggi", exp: "Mengagungkan kesempurnaan dan kemuliaan Allah Swt." }
         ];
 
@@ -1601,15 +1390,10 @@
             document.querySelectorAll('.arabic-word').forEach(w => w.classList.remove('selected-word'));
             if (el) el.classList.add('selected-word');
 
-            const arEl = document.getElementById('popupArabicWord');
-            const trEl = document.getElementById('popupTranslit');
-            const idEl = document.getElementById('popupMeaning');
-            const expEl = document.getElementById('popupExplanation');
-
-            if (arEl) arEl.textContent = ar;
-            if (trEl) trEl.textContent = tr;
-            if (idEl) idEl.textContent = `"${id}"`;
-            if (expEl) expEl.textContent = exp;
+            document.getElementById('popupArabicWord').textContent = ar;
+            document.getElementById('popupTranslit').textContent = tr;
+            document.getElementById('popupMeaning').textContent = `"${id}"`;
+            document.getElementById('popupExplanation').textContent = exp;
 
             const modal = document.getElementById('wordPopupModal');
             const card = document.getElementById('wordPopupCard');
@@ -1637,7 +1421,7 @@
         }
 
         /* =========================================================
-           2. SLIDE NAVIGATION & PROGRESS CONTROLLER
+           SLIDE NAVIGATION & 100% WORKING FULLSCREEN ENGINE
            ========================================================= */
         let currentSlide = 0;
         const totalSlides = 10;
@@ -1656,7 +1440,6 @@
             document.getElementById('slideProgressBar').style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
             document.getElementById('prevBtn').disabled = currentSlide === 0;
 
-            // Update top nav indicators
             const navPills = document.querySelectorAll('.nav-pill span:last-child');
             navPills.forEach(dot => {
                 dot.className = 'w-2 h-2 rounded-full bg-slate-300 transition-all';
@@ -1690,69 +1473,36 @@
             updateSlideUI();
         }
 
-        let isCinemaFullscreen = false;
-
-        function syncFullscreenUI(activeState) {
-            isCinemaFullscreen = activeState;
+        function toggleFullscreen() {
+            const body = document.body;
             const icon = document.getElementById('fullscreenIcon');
             const text = document.getElementById('fullscreenText');
+            const isCurrentlyActive = body.classList.contains('fullscreen-active');
 
-            if (activeState) {
-                document.body.classList.add('pseudo-fullscreen-active');
-                if (icon) icon.className = 'ph-bold ph-corners-in text-sm';
-                if (text) text.textContent = 'Keluar';
-            } else {
-                document.body.classList.remove('pseudo-fullscreen-active');
+            if (isCurrentlyActive) {
+                body.classList.remove('fullscreen-active');
                 if (icon) icon.className = 'ph-bold ph-corners-out text-sm';
                 if (text) text.textContent = 'Fullscreen';
-            }
-        }
-
-        function toggleFullscreen() {
-            const docEl = document.documentElement;
-            const isNativeFull = !!(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement);
-
-            // Jika sedang dalam mode Fullscreen (baik Native maupun Cinema Fallback), keluar dari keduanya
-            if (isNativeFull || isCinemaFullscreen) {
-                if (isNativeFull) {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen().catch(() => {});
-                    } else if (document.webkitExitFullscreen) {
-                        document.webkitExitFullscreen();
-                    } else if (document.msExitFullscreen) {
-                        document.msExitFullscreen();
-                    }
+                if (document.exitFullscreen) {
+                    document.exitFullscreen().catch(() => {});
                 }
-                syncFullscreenUI(false);
-                return;
-            }
-
-            // Aktifkan Cinema Full-Viewport Mode secara instan (agar 100% langsung bekerja di iFrame, HP iOS, dan Desktop)
-            syncFullscreenUI(true);
-
-            // Sekaligus panggil Native Browser Fullscreen API jika diizinkan oleh perangkat/browser
-            try {
+            } else {
+                body.classList.add('fullscreen-active');
+                if (icon) icon.className = 'ph-bold ph-corners-in text-sm';
+                if (text) text.textContent = 'Keluar';
+                const docEl = document.documentElement;
                 if (docEl.requestFullscreen) {
-                    docEl.requestFullscreen().catch(() => {
-                        // Tetap gunakan Cinema Full-Viewport Mode jika diblokir oleh kebijakan iframe
-                    });
+                    docEl.requestFullscreen().catch(() => {});
                 } else if (docEl.webkitRequestFullscreen) {
                     docEl.webkitRequestFullscreen();
-                } else if (docEl.msRequestFullscreen) {
-                    docEl.msRequestFullscreen();
                 }
-            } catch (err) {
-                // Fallback Cinema Mode sudah aktif
             }
         }
 
         document.addEventListener('fullscreenchange', () => {
-            const isNativeFull = !!(document.fullscreenElement || document.webkitFullscreenElement);
-            syncFullscreenUI(isNativeFull);
-        });
-        document.addEventListener('webkitfullscreenchange', () => {
-            const isNativeFull = !!(document.fullscreenElement || document.webkitFullscreenElement);
-            syncFullscreenUI(isNativeFull);
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                // Biarkan cinema fallback tetap berjalan jika user keluar dengan tombol Escape browser
+            }
         });
 
         function toggleMobileMenu() {
@@ -1761,7 +1511,7 @@
             m.classList.toggle('flex');
         }
 
-        // Touch Swipe Support for Mobile Phones (Horizontal Swipe)
+        // Touch Swipe Support
         let touchStartX = 0;
         let touchStartY = 0;
         const stageEl = document.getElementById('presentationStage');
@@ -1774,7 +1524,6 @@
             stageEl.addEventListener('touchend', (e) => {
                 const diffX = e.changedTouches[0].screenX - touchStartX;
                 const diffY = e.changedTouches[0].screenY - touchStartY;
-                // Trigger slide change only if horizontal swipe is dominant and > 65px
                 if (Math.abs(diffX) > 65 && Math.abs(diffX) > Math.abs(diffY) * 1.6) {
                     if (diffX < 0) nextSlide();
                     else prevSlide();
@@ -1788,14 +1537,14 @@
             if (e.key === 'f' || e.key === 'F') toggleFullscreen();
             if (e.key === 'Escape') {
                 closeWordPopup();
-                if (isCinemaFullscreen && !document.fullscreenElement) {
-                    syncFullscreenUI(false);
+                if (document.body.classList.contains('fullscreen-active')) {
+                    toggleFullscreen();
                 }
             }
         });
 
         /* =========================================================
-           3. PENDAHULUAN, PEMANTIK & SYARAT INTERACTIONS
+           CLASSROOM READINESS & DIAGNOSTIC
            ========================================================= */
         let readinessCount = 0;
         function toggleReadiness(btn) {
@@ -1838,10 +1587,10 @@
         }
 
         const pemantikHints = [
-            "Karena syariat Islam dibangun di atas kasih sayang (rahmatan lil 'alamin). Allah tidak menghendaki kesulitan bagi hamba-Nya yang sedang sakit atau menempuh perjalanan berat.",
-            "Puasanya TIDAK BATAL! Rasulullah Saw. menyebutkan bahwa orang yang makan/minum karena lupa sejatinya sedang diberi makan dan minum oleh Allah Swt.",
-            "Menyegerakan berbuka dan mengakhirkan sahur menjaga kebugaran tubuh, membedakan puasa umat Islam, serta menghadirkan keberkahan di waktu sahur.",
-            "Ulama menetapkan metode Taqdir (perkiraan waktu), yaitu mengikuti waktu daerah terdekat yang normal pergantian siang-malamnya atau mengikuti waktu Makkah."
+            "Karena syariat Islam dibangun di atas kasih sayang (rahmatan lil 'alamin). Allah tidak menghendaki kesulitan bagi hamba-Nya yang sedang sakit atau musafir.",
+            "Puasanya TIDAK BATAL! Rasulullah Saw. menyebutkan bahwa orang yang makan/minum karena lupa sejatinya sedang diberi makan dan minum oleh Allah.",
+            "Menyegerakan berbuka dan mengakhirkan sahur menjaga kebugaran tubuh, membedakan puasa umat Islam, serta menghadirkan keberkahan sahur.",
+            "Ulama menetapkan metode Taqdir (perkiraan waktu), yaitu mengikuti waktu daerah terdekat yang normal atau mengikuti waktu Makkah."
         ];
 
         function showPemantikHint(idx) {
@@ -1851,18 +1600,25 @@
         const syaratData = {
             wajib: [
                 { title: "Syarat Wajib 1: Islam", desc: "Puasa adalah ibadah mahdhah yang hanya diwajibkan kepada pemeluk agama Islam." },
-                { title: "Syarat Wajib 2: Baligh", desc: "Anak kecil yang belum baligh belum dikenai kewajiban puasa, namun orang tua wajib melatihnya dengan penuh cinta sejak dini." },
+                { title: "Syarat Wajib 2: Baligh", desc: "Anak kecil yang belum baligh belum dikenai kewajiban puasa, namun orang tua wajib melatihnya dengan cinta." },
                 { title: "Syarat Wajib 3: Berakal Sehat", desc: "Orang yang kehilangan akal (gila/pingsan sepanjang hari) gugur kewajiban puasanya." },
-                { title: "Syarat Wajib 4: Mampu (Kuat)", desc: "Orang tua renta atau sakit parah diberi keringanan tidak puasa dan menggantinya dengan qadha atau fidyah." },
-                { title: "Syarat Wajib 5: Suci Haid & Nifas", desc: "Perempuan yang sedang haid atau nifas tidak wajib (bahkan dilarang) berpuasa saat itu, dan wajib mengqadhanya di hari lain." },
-                { title: "Syarat Wajib 6: Menetap (Mukim)", desc: "Musafir (perjalanan jauh yang mubah) mendapat keringanan boleh tidak berpuasa dan wajib menggantinya (qadha) di hari lain." }
+                { title: "Syarat Wajib 4: Mampu", desc: "Orang tua renta atau sakit parah diberi keringanan tidak puasa dan menggantinya dengan qadha/fidyah." },
+                { title: "Syarat Wajib 5: Suci Haid & Nifas", desc: "Perempuan yang sedang haid atau nifas tidak wajib berpuasa saat itu, dan wajib mengqadhanya." },
+                { title: "Syarat Wajib 6: Mukim", desc: "Musafir (perjalanan jauh yang mubah) mendapat keringanan boleh tidak berpuasa dan wajib qadha." }
             ],
+            sah: [
+                { title: "Syarat Sah 1: Islam", desc: "Non-muslim tidak sah puasanya jika dikerjakan tanpa memeluk Islam terlebih dahulu." },
+                { title: "Syarat Sah 2: Mumayiz", desc: "Anak yang dapat membedakan baik dan buruk (meskipun belum baligh, puasanya sah)." },
+                { title: "Syarat Sah 3: Suci Haid & Nifas", desc: "Suci dari haid dan nifas sepanjang siang hari puasa." },
+                { title: "Syarat Sah 4: Bukan Hari Haram", desc: "Tidak berpuasa pada hari Idul Fitri (1 Syawal), Idul Adha (10 Dzulhijjah), dan Hari Tasyriq (11-13 Dzulhijjah)." }
+            ]
+        };
+
         function inspectSyarat(type, idx, btnEl) {
             const item = syaratData[type][idx];
             document.getElementById('syaratDetailTitle').textContent = item.title;
             document.getElementById('syaratDetailDesc').textContent = item.desc;
 
-            // Beri highlight visual pada kartu syarat yang sedang dipilih
             document.querySelectorAll('.syarat-card').forEach(card => {
                 card.classList.remove('ring-2', 'ring-crimson-600', 'bg-crimson-50');
             });
@@ -1892,39 +1648,14 @@
         }
 
         /* =========================================================
-           4. LKPD 1 INTERACTIVE TABLE (SESUAI LAMPIRAN 1)
+           LKPD 1 TABLE & QUIZ ENGINE
            ========================================================= */
         const lkpdCases = [
-            {
-                no: 1,
-                kasus: "Dina (usia 8 tahun) berpuasa penuh sehari",
-                correct: "Syarat sah",
-                alasan: "Dina belum baligh (belum wajib), tetapi usia 8 tahun sudah Mumayiz (syarat sah), sehingga puasanya sah."
-            },
-            {
-                no: 2,
-                kasus: "Pak Budi sedang menempuh perjalanan jauh (musafir)",
-                correct: "Syarat wajib",
-                alasan: "Mukim (menetap) adalah syarat wajib puasa. Karena musafir, Pak Budi mendapat keringanan boleh tidak puasa dan wajib qadha."
-            },
-            {
-                no: 3,
-                kasus: "Ani berniat puasa Ramadhan pukul 03.30 dini hari",
-                correct: "Rukun",
-                alasan: "Niat adalah rukun puasa pertama, dan pukul 03.30 dini hari sah karena masih malam hari sebelum terbit fajar."
-            },
-            {
-                no: 4,
-                kasus: "Rina sedang haid pada siang hari bulan Ramadhan",
-                correct: "Syarat sah",
-                alasan: "Suci dari haid dan nifas merupakan syarat wajib sekaligus syarat sah puasa; haid di siang hari membatalkan puasa."
-            },
-            {
-                no: 5,
-                kasus: "Seseorang menahan makan dan minum sejak fajar sampai magrib",
-                correct: "Rukun",
-                alasan: "Menahan diri dari segala pembatal puasa sejak terbit fajar hingga terbenam matahari adalah rukun puasa kedua."
-            }
+            { no: 1, kasus: "Dina (usia 8 tahun) berpuasa penuh sehari", correct: "Syarat sah", alasan: "Dina belum baligh (belum wajib), tetapi usia 8 tahun sudah Mumayiz (syarat sah), sehingga puasanya sah." },
+            { no: 2, kasus: "Pak Budi sedang menempuh perjalanan jauh (musafir)", correct: "Syarat wajib", alasan: "Mukim adalah syarat wajib puasa. Karena musafir, Pak Budi mendapat keringanan boleh tidak puasa dan wajib qadha." },
+            { no: 3, kasus: "Ani berniat puasa Ramadhan pukul 03.30 dini hari", correct: "Rukun", alasan: "Niat adalah rukun puasa pertama, dan pukul 03.30 dini hari sah karena masih malam hari sebelum fajar." },
+            { no: 4, kasus: "Rina sedang haid pada siang hari bulan Ramadhan", correct: "Syarat sah", alasan: "Suci dari haid dan nifas merupakan syarat sah puasa; haid di siang hari membatalkan puasa." },
+            { no: 5, kasus: "Seseorang menahan makan dan minum sejak fajar sampai magrib", correct: "Rukun", alasan: "Menahan diri dari segala pembatal puasa sejak terbit fajar hingga terbenam matahari adalah rukun puasa kedua." }
         ];
 
         function renderLKPDTable() {
@@ -1965,7 +1696,7 @@
                 reasonCell.className = "p-3 text-slate-700 not-italic";
             } else {
                 selectEl.className = "lkpd-select w-full p-2 rounded-lg border-2 border-crimson-600 bg-crimson-50 font-bold text-crimson-800";
-                reasonCell.innerHTML = `<span class="text-crimson-600 font-bold">Kurang Tepat.</span> Petunjuk: Perhatikan apakah hal ini terkait kewajiban, keabsahan, atau inti pelaksanaan puasa.`;
+                reasonCell.innerHTML = `<span class="text-crimson-600 font-bold">Kurang Tepat.</span> Perhatikan apakah hal ini terkait kewajiban, keabsahan, atau inti pelaksanaan puasa.`;
                 reasonCell.className = "p-3 text-slate-700 not-italic";
             }
             updateLKPDCount();
@@ -1986,9 +1717,6 @@
             });
         }
 
-        /* =========================================================
-           5. INTERACTIVE QUIZ ENGINE (MODUL ASESMEN)
-           ========================================================= */
         const quizQuestions = [
             {
                 q: "1. Menahan diri dari makan, minum, dan hal yang membatalkan puasa sejak terbit fajar sampai terbenam matahari disebut ....",
@@ -1998,27 +1726,27 @@
             },
             {
                 q: "2. Berikut ini yang termasuk syarat sah puasa (sehingga anak usia 8 tahun sah puasanya) adalah ....",
-                options: ["A. Mampu", "B. Mukim (Menetap)", "C. Mumayiz (Dapat membedakan baik & buruk)", "D. Baligh"],
+                options: ["A. Mampu", "B. Mukim", "C. Mumayiz (Dapat membedakan baik & buruk)", "D. Baligh"],
                 correct: 2,
-                exp: "Mumayiz adalah salah satu dari 4 syarat sah puasa (Islam, Mumayiz, Suci dari haid/nifas, dan bukan pada hari yang diharamkan)."
+                exp: "Mumayiz adalah salah satu syarat sah puasa (Islam, Mumayiz, Suci dari haid/nifas, bukan pada hari yang diharamkan)."
             },
             {
                 q: "3. Berdasarkan hadis Rasulullah Saw., niat puasa wajib bulan Ramadhan harus dilakukan ....",
                 options: ["A. Setelah terbit fajar", "B. Sebelum tergelincir matahari (waktu Zuhur)", "C. Pada malam hari sebelum terbit fajar (Tabyitul Niyyah)", "D. Saat menyegerakan berbuka puasa"],
                 correct: 2,
-                exp: "Rasulullah Saw. bersabda: 'Barang siapa yang tidak berniat puasa pada malam hari sebelum fajar, maka tidak ada puasa baginya.' (HR. Abu Dawud, at-Tirmidzi, dan an-Nasa'i)."
+                exp: "Rasulullah Saw. bersabda: 'Barang siapa yang tidak berniat puasa pada malam hari sebelum fajar, maka tidak ada puasa baginya.' (HR. Abu Dawud, at-Tirmidzi, an-Nasa'i)."
             },
             {
-                q: "4. Dalam QS. al-Baqarah ayat 187, ungkapan 'al-khaythul abyadhu minal khaythil aswadi minal fajr' (benang putih dari benang hitam) menjelaskan tentang ....",
-                options: ["A. Keutamaan memberi makan orang berbuka", "B. Batas berakhirnya waktu makan sahur dan dimulainya puasa saat terbit fajar", "C. Kewajiban membayar fidyah bagi lansia", "D. Larangan berpuasa pada hari tasyriq"],
+                q: "4. Dalam QS. al-Baqarah ayat 187, ungkapan 'benang putih dari benang hitam' menjelaskan tentang ....",
+                options: ["A. Keutamaan memberi makan orang berbuka", "B. Batas waktu sahur dan dimulainya puasa saat terbit fajar", "C. Kewajiban membayar fidyah bagi lansia", "D. Larangan berpuasa di hari tasyriq"],
                 correct: 1,
-                exp: "Benang putih adalah kiasan terangnya cahaya fajar shadiq (Subuh) dan benang hitam adalah gelapnya malam."
+                exp: "Benang putih adalah kiasan cahaya fajar shadiq (Subuh) dan benang hitam adalah gelapnya malam."
             },
             {
-                q: "5. Apabila seseorang bangun kesiangan pada pukul 08.00 pagi, belum makan dan minum apa pun sejak Subuh, lalu ia berniat ingin berpuasa Sunnah Senin-Kamis pada hari itu, bagaimana hukum puasanya?",
-                options: ["A. Tidak sah karena belum berniat di malam hari", "B. Sah, karena puasa sunnah boleh diniatkan setelah fajar hingga sebelum matahari tergelincir asal belum melakukan pembatal puasa", "C. Makruh dan wajib mengqadha", "D. Batal dan wajib membayar fidyah"],
+                q: "5. Seseorang bangun pukul 08.00 pagi, belum makan/minum sejak fajar, lalu ia berniat puasa Sunnah Senin-Kamis. Bagaimana hukumnya?",
+                options: ["A. Tidak sah karena tidak berniat di malam hari", "B. Sah, karena puasa sunnah boleh diniatkan setelah fajar sampai sebelum zuhur asal belum batal", "C. Makruh dan wajib qadha", "D. Batal dan wajib fidyah"],
                 correct: 1,
-                exp: "Berbeda dengan puasa wajib, puasa sunnah boleh diniatkan setelah fajar sampai sebelum tergelincir matahari (zuhur) selama belum melakukan hal yang membatalkan puasa."
+                exp: "Berbeda dengan puasa wajib, puasa sunnah boleh diniatkan setelah fajar hingga sebelum tergelincir matahari (zuhur) selama belum melakukan hal yang membatalkan puasa."
             }
         ];
 
@@ -2099,7 +1827,7 @@
         }
 
         /* =========================================================
-           6. REFLECTION STARS, MODALS & CLASSROOM TIMER
+           REFLECTIONS, TIMER & INITIALIZATION
            ========================================================= */
         function setStarRating(stars) {
             const buttons = document.querySelectorAll('#starContainer button');
@@ -2163,9 +1891,6 @@
             }
         }
 
-        /* =========================================================
-           INITIALIZATION ON WINDOW LOAD
-           ========================================================= */
         function initPresentationApp() {
             renderInteractiveArabic('ayahBaqarah183Container', baqarah183Words);
             renderInteractiveArabic('ayahBaqarahContainer', baqarah187Words);
