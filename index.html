@@ -854,112 +854,144 @@
             <!-- ==========================================
                  SLIDE 6: SYARAT WAJIB & SYARAT SAH PUASA (INTERACTIVE EXPLORER)
                  ========================================== -->
-            <section class="slide-view p-6 sm:p-10 flex flex-col justify-between" data-slide="5">
-                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3 stagger-item delay-1">
-                    <div>
-                        <span class="text-[11px] font-bold uppercase tracking-widest text-crimson-600">Product Matrix • Ketentuan Syariat</span>
-                        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Perbedaan Syarat Wajib & Syarat Sah Puasa</h2>
-                    </div>
-                    <span class="text-xs text-slate-500">Klik setiap kartu syarat untuk membedah contoh kasus fikihnya!</span>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 my-auto py-3">
-                    <!-- Column 1: 6 Syarat Wajib -->
-                    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-2">
+            <section class="slide-view p-4 sm:p-6 lg:px-8 lg:py-5 flex flex-col justify-between gap-2.5" data-slide="5">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2 shrink-0 stagger-item delay-1">
+                    <div class="flex items-center gap-2.5">
+                        <span class="px-2.5 py-1 rounded-md crimson-glass text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider">Matriks Ketentuan</span>
                         <div>
-                            <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
-                                <div class="flex items-center gap-2.5">
-                                    <span class="w-8 h-8 rounded-lg crimson-glass text-white font-bold flex items-center justify-center text-sm">A</span>
-                                    <div>
-                                        <h3 class="font-extrabold text-base text-slate-900">Syarat Wajib Puasa (6 Hal)</h3>
-                                        <p class="text-[11px] text-slate-500">Menyebabkan seseorang dikenai kewajiban berpuasa</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-2.5">
-                                <button onclick="inspectSyarat('wajib', 0)" class="p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all group">
-                                    <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">1. Islam</div>
-                                    <div class="text-[11px] text-slate-500">Beragama Islam</div>
-                                </button>
-                                <button onclick="inspectSyarat('wajib', 1)" class="p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all group">
-                                    <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">2. Baligh</div>
-                                    <div class="text-[11px] text-slate-500">Sampai usia dewasa syariat</div>
-                                </button>
-                                <button onclick="inspectSyarat('wajib', 2)" class="p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all group">
-                                    <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">3. Berakal Sehat</div>
-                                    <div class="text-[11px] text-slate-500">Tidak gila / hilang akal</div>
-                                </button>
-                                <button onclick="inspectSyarat('wajib', 3)" class="p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all group">
-                                    <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">4. Mampu (Kuat)</div>
-                                    <div class="text-[11px] text-slate-500">Tidak sakit parah / tua renta</div>
-                                </button>
-                                <button onclick="inspectSyarat('wajib', 4)" class="p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all group">
-                                    <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">5. Suci Haid & Nifas</div>
-                                    <div class="text-[11px] text-slate-500">Khusus bagi perempuan</div>
-                                </button>
-                                <button onclick="inspectSyarat('wajib', 5)" class="p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all group">
-                                    <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">6. Menetap (Mukim)</div>
-                                    <div class="text-[11px] text-slate-500">Tidak sedang musafir jauh</div>
-                                </button>
-                            </div>
+                            <h2 class="text-base sm:text-xl lg:text-2xl font-extrabold text-slate-900 leading-tight">Perbedaan Syarat Wajib & Syarat Sah Puasa</h2>
                         </div>
                     </div>
+                    <span class="text-[11px] sm:text-xs font-bold text-crimson-700 bg-crimson-50 px-3 py-1 rounded-full border border-crimson-200 flex items-center gap-1.5">
+                        <i class="ph-fill ph-hand-tap"></i> Klik setiap kartu syarat untuk membedah contoh kasus fikihnya!
+                    </span>
+                </div>
 
-                    <!-- Column 2: 4 Syarat Sah -->
-                    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-3">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 my-auto items-stretch">
+                    <!-- Column 1: 6 Syarat Wajib -->
+                    <div class="lg:col-span-6 bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-2">
                         <div>
-                            <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
-                                <div class="flex items-center gap-2.5">
-                                    <span class="w-8 h-8 rounded-lg bg-slate-900 text-white font-bold flex items-center justify-center text-sm">B</span>
+                            <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-100">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-7 h-7 rounded-lg crimson-glass text-white font-bold flex items-center justify-center text-xs shrink-0">A</span>
                                     <div>
-                                        <h3 class="font-extrabold text-base text-slate-900">Syarat Sah Puasa (4 Hal)</h3>
-                                        <p class="text-[11px] text-slate-500">Kondisi yang harus terpenuhi agar puasa seseorang sah</p>
+                                        <h3 class="font-extrabold text-sm sm:text-base text-slate-900 leading-tight">Syarat Wajib Puasa (6 Hal)</h3>
+                                        <p class="text-[10px] sm:text-[11px] text-slate-500">Hal yang menyebabkan seseorang dikenai kewajiban berpuasa</p>
                                     </div>
                                 </div>
+                                <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-crimson-50 text-crimson-700 border border-crimson-100 shrink-0">Kewajiban</span>
                             </div>
-                            <div class="space-y-2.5">
-                                <button onclick="inspectSyarat('sah', 0)" class="w-full p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all flex items-center justify-between group">
+                            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2">
+                                <button type="button" onclick="inspectSyarat('wajib', 0, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
                                     <div>
                                         <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">1. Islam</div>
-                                        <div class="text-[11px] text-slate-500">Orang yang tidak beragama Islam tidak sah puasanya</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">Beragama Islam</div>
                                     </div>
-                                    <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600"></i>
+                                    <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
-                                <button onclick="inspectSyarat('sah', 1)" class="w-full p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all flex items-center justify-between group">
+                                <button type="button" onclick="inspectSyarat('wajib', 1, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
                                     <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">2. Mumayiz</div>
-                                        <div class="text-[11px] text-slate-500">Dapat membedakan yang baik dan buruk (meski belum baligh)</div>
+                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">2. Baligh</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">Dewasa menurut syariat</div>
                                     </div>
-                                    <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600"></i>
+                                    <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
-                                <button onclick="inspectSyarat('sah', 2)" class="w-full p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all flex items-center justify-between group">
+                                <button type="button" onclick="inspectSyarat('wajib', 2, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
                                     <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">3. Suci dari Haid dan Nifas</div>
-                                        <div class="text-[11px] text-slate-500">Suci sepanjang siang hari berpuasa</div>
+                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">3. Berakal Sehat</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">Tidak gila / hilang akal</div>
                                     </div>
-                                    <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600"></i>
+                                    <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
-                                <button onclick="inspectSyarat('sah', 3)" class="w-full p-3 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-400 text-left transition-all flex items-center justify-between group">
+                                <button type="button" onclick="inspectSyarat('wajib', 3, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
                                     <div>
-                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">4. Bukan pada Hari yang Diharamkan</div>
-                                        <div class="text-[11px] text-slate-500">1 Syawal, 10 Dzulhijjah, dan Hari Tasyriq (11–13 Dzulhijjah)</div>
+                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">4. Mampu (Kuat)</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">Tidak sakit / tua renta</div>
                                     </div>
-                                    <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600"></i>
+                                    <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
+                                </button>
+                                <button type="button" onclick="inspectSyarat('wajib', 4, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
+                                    <div>
+                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">5. Suci Haid & Nifas</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">Khusus bagi perempuan</div>
+                                    </div>
+                                    <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
+                                </button>
+                                <button type="button" onclick="inspectSyarat('wajib', 5, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all group flex items-start justify-between gap-1">
+                                    <div>
+                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">6. Menetap (Mukim)</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">Tidak sedang musafir</div>
+                                    </div>
+                                    <i class="ph-bold ph-magnifying-glass-plus text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Column 2: 4 Syarat Sah (2x2 Grid + Ringkasan Kunci) -->
+                    <div class="lg:col-span-6 bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200 shadow-sm flex flex-col justify-between stagger-item delay-3">
+                        <div>
+                            <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-100">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-7 h-7 rounded-lg bg-slate-900 text-white font-bold flex items-center justify-center text-xs shrink-0">B</span>
+                                    <div>
+                                        <h3 class="font-extrabold text-sm sm:text-base text-slate-900 leading-tight">Syarat Sah Puasa (4 Hal)</h3>
+                                        <p class="text-[10px] sm:text-[11px] text-slate-500">Kondisi yang harus terpenuhi agar puasa seseorang sah</p>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 shrink-0">Keabsahan</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <button type="button" onclick="inspectSyarat('sah', 0, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all flex items-start justify-between gap-1 group">
+                                    <div>
+                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">1. Islam</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">Non-muslim tidak sah puasanya</div>
+                                    </div>
+                                    <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
+                                </button>
+                                <button type="button" onclick="inspectSyarat('sah', 1, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all flex items-start justify-between gap-1 group">
+                                    <div>
+                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">2. Mumayiz</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">Bisa membedakan baik & buruk</div>
+                                    </div>
+                                    <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
+                                </button>
+                                <button type="button" onclick="inspectSyarat('sah', 2, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all flex items-start justify-between gap-1 group">
+                                    <div>
+                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">3. Suci Haid & Nifas</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">Suci sepanjang siang hari puasa</div>
+                                    </div>
+                                    <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
+                                </button>
+                                <button type="button" onclick="inspectSyarat('sah', 3, this)" class="syarat-card p-2.5 rounded-xl bg-slate-50 hover:bg-crimson-50 border border-slate-200 hover:border-crimson-500 text-left transition-all flex items-start justify-between gap-1 group">
+                                    <div>
+                                        <div class="text-xs font-extrabold text-slate-900 group-hover:text-crimson-600">4. Bukan Hari Haram</div>
+                                        <div class="text-[10px] text-slate-500 leading-snug">1 Syawal, 10–13 Dzulhijjah</div>
+                                    </div>
+                                    <i class="ph-bold ph-info text-slate-400 group-hover:text-crimson-600 text-xs shrink-0 mt-0.5"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quick Comparison Pill inside Column 2 to balance height with 6 items in Column 1 -->
+                        <div class="mt-2 p-2.5 rounded-xl bg-crimson-50/80 border border-crimson-200 flex items-center justify-between gap-2 text-[11px]">
+                            <div class="text-crimson-900 leading-snug">
+                                <strong class="text-crimson-700">Inti Perbedaan:</strong> <em>Baligh & Mukim</em> adalah <strong>Syarat Wajib</strong>, sedangkan <em>Mumayiz</em> adalah <strong>Syarat Sah</strong>.
+                            </div>
+                            <span class="px-2 py-0.5 rounded bg-white text-crimson-700 font-extrabold text-[10px] border border-crimson-200 shrink-0">Penting!</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Dynamic Explanation Bar at Bottom -->
-                <div id="syaratDetailBox" class="stagger-item delay-4 p-4 rounded-2xl bg-slate-900 text-white flex items-center justify-between gap-4">
+                <!-- Dynamic Explanation Bar at Bottom (Compact & Always Visible) -->
+                <div id="syaratDetailBox" class="stagger-item delay-4 p-3 sm:p-3.5 rounded-2xl bg-slate-900 text-white flex items-center justify-between gap-3 shrink-0 shadow-md">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-crimson-600 flex items-center justify-center shrink-0">
-                            <i class="ph-fill ph-scales text-xl"></i>
+                        <div class="w-9 h-9 rounded-xl bg-crimson-600 flex items-center justify-center shrink-0">
+                            <i class="ph-fill ph-scales text-lg"></i>
                         </div>
                         <div>
-                            <div id="syaratDetailTitle" class="text-xs font-bold text-amber-400 uppercase tracking-wider">Kunci Perbedaan Penting (Klik kartu di atas):</div>
-                            <p id="syaratDetailDesc" class="text-xs sm:text-sm text-slate-200">Anak usia 8 tahun (sudah <strong>Mumayiz</strong> tapi belum <strong>Baligh</strong>): belum wajib puasa, tetapi jika ia berpuasa maka puasanya <strong>SAH</strong>!</p>
+                            <div id="syaratDetailTitle" class="text-[11px] sm:text-xs font-bold text-amber-400 uppercase tracking-wider">Kunci Perbedaan Penting (Klik kartu syarat di atas):</div>
+                            <p id="syaratDetailDesc" class="text-xs sm:text-sm text-slate-100 leading-snug">Anak usia 8 tahun (sudah <strong>Mumayiz</strong> tapi belum <strong>Baligh</strong>): belum wajib puasa, tetapi jika ia berpuasa maka puasanya <strong>SAH</strong>!</p>
                         </div>
                     </div>
                 </div>
@@ -1825,18 +1857,18 @@
                 { title: "Syarat Wajib 5: Suci Haid & Nifas", desc: "Perempuan yang sedang haid atau nifas tidak wajib (bahkan dilarang) berpuasa saat itu, dan wajib mengqadhanya di hari lain." },
                 { title: "Syarat Wajib 6: Menetap (Mukim)", desc: "Musafir (perjalanan jauh yang mubah) mendapat keringanan boleh tidak berpuasa dan wajib menggantinya (qadha) di hari lain." }
             ],
-            sah: [
-                { title: "Syarat Sah 1: Islam", desc: "Selain menjadi syarat wajib, beragama Islam juga menjadi syarat mutlak sahnya ibadah puasa seseorang." },
-                { title: "Syarat Sah 2: Mumayiz", desc: "Anak berusia sekitar 7-8 tahun yang sudah bisa membedakan baik dan buruk, jika ia berpuasa maka puasanya SAH dan berpahala!" },
-                { title: "Syarat Sah 3: Suci dari Haid dan Nifas", desc: "Apabila keluar darah haid walau sesaat sebelum azan Magrib, maka puasa pada hari itu batal/tidak sah dan wajib diqadha." },
-                { title: "Syarat Sah 4: Bukan Hari yang Diharamkan", desc: "Tidak sah berpuasa pada Hari Raya Idul Fitri (1 Syawal), Idul Adha (10 Dzulhijjah), dan Hari Tasyriq (11, 12, 13 Dzulhijjah)." }
-            ]
-        };
-
-        function inspectSyarat(type, idx) {
+        function inspectSyarat(type, idx, btnEl) {
             const item = syaratData[type][idx];
             document.getElementById('syaratDetailTitle').textContent = item.title;
             document.getElementById('syaratDetailDesc').textContent = item.desc;
+
+            // Beri highlight visual pada kartu syarat yang sedang dipilih
+            document.querySelectorAll('.syarat-card').forEach(card => {
+                card.classList.remove('ring-2', 'ring-crimson-600', 'bg-crimson-50');
+            });
+            if (btnEl) {
+                btnEl.classList.add('ring-2', 'ring-crimson-600', 'bg-crimson-50');
+            }
         }
 
         let marketRound = 1;
